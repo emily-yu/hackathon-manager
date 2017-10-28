@@ -37,11 +37,8 @@ def hello():
 def newSheet():
 	# http://b99de565.ngrok.io/write?input=nam&email=edf&school=asdf
 	name = request.args.get("input")
-	print(name)
 	email = request.args.get("email")
-	print(email)
 	school = request.args.get("school")
-	print(school)
 	row = [name, email, school]
 	with open('data.csv', "a") as f:
 		writer = csv.writer(f)
@@ -51,11 +48,8 @@ def newSheet():
 @app.route("/hardware")
 def newSheet2():
 	deviceName = request.args.get("deviceName")
-	print(deviceName)
 	loanee = request.args.get("loanee")
-	print(loanee)
 	cost = request.args.get("cost")
-	print(cost)
 	row = [deviceName, loanee, cost]
 	with open('hardware.csv', "a") as f:
 		writer = csv.writer(f)
@@ -65,13 +59,9 @@ def newSheet2():
 @app.route("/sponsors")
 def newSheet3():
 	companyName = request.args.get("companyName")
-	print(companyName)
 	status = request.args.get("status")
-	print(status)
 	proposal = request.args.get("proposal")
-	print(proposal)
 	notes  = request.args.get("notes")
-	print(notes)
 	row = [companyName, status, proposal, notes]
 	with open('sponsors.csv', "a") as f:
 		writer = csv.writer(f)
@@ -81,29 +71,17 @@ def newSheet3():
 @app.route("/judges")
 def newSheet4():
 	judgeName = request.args.get("judgeName")
-	print(judgeName)
 	projectName = request.args.get("projectName")
-	print(projectName)
 	c1Grade = request.args.get("c1Grade")
-	print(c1Grade)
 	c1Notes = request.args.get("c1Notes")
-	print(c1Notes)
 	c2Grade = request.args.get("c2Grade")
-	print(c2Grade)
 	c2Notes = request.args.get("c2Notes")
-	print(c2Notes)
 	c3Grade = request.args.get("c3Grade")
-	print(c3Grade)
 	c3Notes = request.args.get("c3Notes")
-	print(c3Notes)
 	c4Grade = request.args.get("c4Grade")
-	print(c4Grade)
 	c4Notes = request.args.get("c4Notes")
-	print(c4Notes)
 	c5Grade = request.args.get("c5Grade")
-	print(c5Grade)
 	c5Notes = request.args.get("c5Notes")
-	print(c5Notes)
 	row = [judgeName, projectName, c1Grade, c1Notes, c2Grade, c2Notes, c3Grade, c3Notes, c4Grade, c4Notes, c5Grade, c5Notes]
 	with open('judges.csv', "a") as f:
 		writer = csv.writer(f)
