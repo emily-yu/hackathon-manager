@@ -11,9 +11,13 @@ import csv
 import pandas
 import codecs
 
+global array1 
 array1 = list()
+global array2
 array2 = list()
+global array3
 array3 = list()
+global array4
 array4 = list()
 
 app = Flask(__name__)
@@ -38,11 +42,10 @@ def hello():
 		for row in reader4:
 			print(row)
 	return "hey it's me"
-# write new user
-@app.route("/write")
+
+@app.route("/users")
 def newSheet():
-	# http://b99de565.ngrok.io/write?input=nam&email=edf&school=asdf
-	name = request.args.get("input")
+	name = request.args.get("name")
 	email = request.args.get("email")
 	school = request.args.get("school")
 	row = [name, email, school]
