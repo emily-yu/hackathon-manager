@@ -52,7 +52,7 @@ def newSheet():
 	with open('data.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([name, " "]), ''.join([email, " "]), ''.join([school, " "])])
-		array1.append(''.join([name, " "]), ''.join([email, " "]), ''.join([school, " "]))
+		array1.append(''.join([name, " "]) + ''.join([email, " "]) + ''.join([school, " "]))
 	return "Users"
 
 @app.route("/hardware")
@@ -64,7 +64,7 @@ def newSheet2():
 	with open('hardware.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([deviceName, " "]), ''.join([loanee, " "]), ''.join([cost, " "])])
-		array2.append(''.join([deviceName, " "]), ''.join([loanee, " "]), ''.join([cost, " "]))
+		array2.append(''.join([deviceName, " "]) + ''.join([loanee, " "]) + ''.join([cost, " "]))
 	return "Hardware"
 
 @app.route("/sponsors")
@@ -77,7 +77,7 @@ def newSheet3():
 	with open('sponsors.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([companyName, " "]), ''.join([status, " "]), ''.join([proposal, " "]), ''.join([notes, " "])])
-		array3.append(''.join([companyName, " "]), ''.join([status, " "]), ''.join([proposal, " "]), ''.join([notes, " "]))
+		array3.append(''.join([companyName, " "]) + ''.join([status, " "]) + ''.join([proposal, " "]) + ''.join([notes, " "]))
 	return "Sponsors"
 
 @app.route("/judges")
@@ -98,7 +98,7 @@ def newSheet4():
 	with open('judges.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([judgeName, " "]), ''.join([projectName, " "]), ''.join([c1Grade, " "]), ''.join([c1Notes, " "]), ''.join([c2Grade, " "]), ''.join([c2Notes, " "]), ''.join([c3Grade, " "]), ''.join([c3Notes, " "]), ''.join([c4Grade, " "]), ''.join([c4Notes, " "]), ''.join([c5Grade, " "]), ''.join([c5Notes, " "])])
-		array4.append(''.join([judgeName, " "]), ''.join([projectName, " "]), ''.join([c1Grade, " "]), ''.join([c1Notes, " "]), ''.join([c2Grade, " "]), ''.join([c2Notes, " "]), ''.join([c3Grade, " "]), ''.join([c3Notes, " "]), ''.join([c4Grade, " "]), ''.join([c4Notes, " "]), ''.join([c5Grade, " "]), ''.join([c5Notes, " "]))
+		array4.append(''.join([judgeName, " "]) + ''.join([projectName, " "]) + ''.join([c1Grade, " "]) + ''.join([c1Notes, " "]) + ''.join([c2Grade, " "]) + ''.join([c2Notes, " "]) + ''.join([c3Grade, " "]) + ''.join([c3Notes, " "]) + ''.join([c4Grade, " "]) + ''.join([c4Notes, " "]) + ''.join([c5Grade, " "]) + ''.join([c5Notes, " "]))
 	return "judges"
 
 def output1():
