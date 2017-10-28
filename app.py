@@ -10,6 +10,11 @@ import base64
 import csv
 import pandas
 
+array1 = list()
+array2 = list()
+array3 = list()
+array4 = list()
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -43,6 +48,7 @@ def newSheet():
 	with open('data.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([name, " "]), ''.join([email, " "]), ''.join([school, " "])])
+		array1.append(row)
 	return "Users"
 
 @app.route("/hardware")
@@ -54,6 +60,7 @@ def newSheet2():
 	with open('hardware.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([deviceName, " "]), ''.join([loanee, " "]), ''.join([cost, " "])])
+		array2.append(row)
 	return "Hardware"
 
 @app.route("/sponsors")
@@ -66,6 +73,7 @@ def newSheet3():
 	with open('sponsors.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([companyName, " "]), ''.join([status, " "]), ''.join([proposal, " "]), ''.join([notes, " "])])
+		array3.append(row)
 	return "Sponsors"
 
 @app.route("/judges")
@@ -86,9 +94,18 @@ def newSheet4():
 	with open('judges.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([judgeName, " "]), ''.join([projectName, " "]), ''.join([c1Grade, " "]), ''.join([c1Notes, " "]), ''.join([c2Grade, " "]), ''.join([c2Notes, " "]), ''.join([c3Grade, " "]), ''.join([c3Notes, " "]), ''.join([c4Grade, " "]), ''.join([c4Notes, " "]), ''.join([c5Grade, " "]), ''.join([c5Notes, " "])])
+		array4.append(row)
 	return "judges"
 
-
+@app.route("/output")
+def output1():
+	return array1
+def output2():
+	return array2
+def output3():
+	return array3
+def output4():
+	return array4
 
 
 @app.route("/sendEmail")
