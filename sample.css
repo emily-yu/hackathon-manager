@@ -1,1 +1,18 @@
-bleugh
+h1 {
+  font-size: 50px;
+  font-family: "Roboto";
+  font-weight:900;
+}
+
+.logoimage {
+  width: 100px;
+}
+
+.linkseffects {
+  font-size: 25px;
+  font-family:"Amiko";
+}
+
+.linkseffects {
+  background-image: url("");
+}
