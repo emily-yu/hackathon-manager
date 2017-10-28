@@ -4,7 +4,7 @@
 	<title>Judging</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body onload = "createTable2()">
+<body onload = "output4()">
 
 <section class = "navbar">
 	<div class = "navbar-content">
@@ -54,4 +54,21 @@
 </body>
 
 <script src = "app.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+function output4() {
+	var myUrl = 'https://806927e2.ngrok.io/output4';
+	var proxy = 'https://cors-anywhere.herokuapp.com/';
+
+	$.ajax({
+	    url: proxy + myUrl,
+	    complete: function(data){
+	        console.log(data.responseText);
+	        same(12, data.responseText);
+	    }
+	});
+}
+
+</script>
+
 </html>

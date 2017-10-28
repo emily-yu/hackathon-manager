@@ -20,6 +20,17 @@ h1 {
   opacity: 0.75
 }
 body {
-  background-image: url("https://i.imgur.com/lLbmPAM.jpg");
-  background-size: cover;
+    background-image: linear-gradient(rgba(221, 255, 221, 0.7), rgba(221, 255, 121, 0.7)) ,url('http://i0.kym-cdn.com/entries/icons/original/000/021/033/Screenshot_236.png') !important;
+/*    background-image: linear-gradient(rgba(221, 255, 221, 1), rgba(27, 122, 20, 0.8)),url('../img/food.jpg') !important;*/
+  background-color: black;
+  position:relative;
+  width:100%;
+  text-align:center
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size:cover;
 }
