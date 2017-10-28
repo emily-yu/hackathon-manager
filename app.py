@@ -20,8 +20,12 @@ def hello():
 			# each row is a user
 			print(row)
 	with open('hardware.csv', newline='') as myFile2:
-		reader = csv.reader(myFile2)
-		for row in reader:
+		reader2 = csv.reader(myFile2)
+		for row in reader2:
+			print(row)
+	with open('sponsors.csv', newline='') as myFile3:
+		reader3 = csv.reader(myFile3)
+		for row in reader3:
 			print(row)
 	return "hey it's me"
 
@@ -41,7 +45,7 @@ def newSheet():
 		writer = csv.writer(f)
 		writer.writerow([''.join([names, " "]), ''.join([email, " "]), ''.join([school, " "])])
 	return "same"
-
+@app.route("/write")
 def newSheet2():
 	deviceName = request.args.get("deviceName")
 	print(deviceName)
@@ -54,6 +58,23 @@ def newSheet2():
 		writer = csv.writer(f)
 		writer.writerow([''.join([deviceName, " "]), ''.join([loanee, " "]), ''.join([cost, " "])])
 	return "same lmao"
+@app.route("/write")
+def newSheet3():
+	companyName = request.args.get("companyName")
+	print(companyName)
+	status = request.args.get("status")
+	print(status)
+	proposal = request.args.get("proposal")
+	print(proposal)
+	notes  = request.args.get("notes")
+	print(notes)
+	row = [companyName, status, proposal, notes]
+	with open('sponsors.csv', "a") as f:
+		writer = csv.writer(f)
+		writer.writerow([''.join([companyName, " "]), ''.join([status, " "]), ''.join([proposal, " "]), ''.join([notes, " "])])
+	return "big shaq"
+
+
 
 @app.route("/sendEmail")
 def send_simple_message():
