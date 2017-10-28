@@ -61,12 +61,7 @@ function createTable2() {
     document.getElementById("2").innerHTML = content;
 }
 
-
-
-
 function createNTable(array) {
-    // var array = [["god bless",2,3,4],[4,5,6,4],[7,8,9,4]];
-    // var array = loadData();
     var content = "";
     array.forEach(function(row) {
         content += "<tr>";
@@ -78,39 +73,38 @@ function createNTable(array) {
     document.getElementById("1").innerHTML = content;
 }
 
-
-
-// array with n strings inside each array
-// if n = 3, then [[a, b, c], [a , b, c]]
-function same(n, csv){
+function same(n, csv) {
     var temp = new Array();
     temp = csv.split('\n');
     temp = temp.toString().split(',');
     temp = temp.toString().split(/[ ,]+/);
+    for (i = 0; i < temp.length; i += 1) { 
+        temp[i] = temp[i].replace(/\W/g, '')
+        if (temp[i] == "") {
+            temp.splice(i, 1);
+        }
+    }
     var fullArray = []
     var avgArray = []
-    for(i = 0; i < temp.length; i+=1) { 
+    for(i = 0; i < temp.length; i+=1){ 
         console.log(i)
         if (avgArray.length == n) {
             fullArray.push(avgArray)
             avgArray = []
+            avgArray.push(temp[i])
         }
         else {
             avgArray.push(temp[i])
         }
     }
+
+    // judging
+    if (n == 12) {
+        for (i = 0; i < fullArray.length; i+=1) { 
+            console.log(temp[i])
+        }
+    }
+
     console.log(fullArray)
     createNTable(fullArray)
 }
-
-
-
-
-// // // get data
-// function output1() {
-//     var client = new HttpClient();
-//     client.get('https://806927e2.ngrok.io/output1', function(response) {
-//         // do something with response
-//         console.log(response)
-//     });
-// }
