@@ -119,35 +119,35 @@ def newSheet5():
 		#array5.append([''.join([goals, " "]), ''.join([emailList, " "])])
 	return "goals"
 
-@app.route("/output1")	
+@app.route("/output1")
 def output1():
 	with open('data.csv') as f:
 		s1 = f.read() + '\n' # add trailing new line character
-	return(repr(s1))
+	return(s1)
 
 @app.route("/output2")
 def output2():
 	with open('hardware.csv') as f:
 		s2 = f.read() + '\n' # add trailing new line character
-	return(repr(s2))
+	return(s2)
 
-@app.route("/output3")
+@app.route("/output3")	
 def output3():
 	with open('sponsors.csv') as f:
 		s3 = f.read() + '\n' # add trailing new line character
-	return(repr(s3))
+	return(s3)
 
 @app.route("/output4")
 def output4():
 	with open('judges.csv') as f:
 		s4 = f.read() + '\n' # add trailing new line character
-	return(repr(s4))
+	return(s4)
 
 @app.route("/output5")
 def output5():
 	with open('goals.csv') as f:
 		s5 = f.read() + '\n' # add trailing new line character
-	return(repr(s5))
+	return(s5)
 
 
 @app.route("/sendEmail")
