@@ -16,8 +16,11 @@ h1 {
 }
 .main {
   background-image: url("https://i.imgur.com/ihSfH75.png");
-  opacity: 0.75
-
+  opacity: 0.3
+}
+.main:hover {
+  background-image: url("https://i.imgur.com/ihSfH75.png");
+  opacity: 1.0
 }
 body {
   background-image: url("https://i.imgur.com/lLbmPAM.jpg");
