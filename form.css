@@ -1,0 +1,26 @@
+body {
+	padding: 10%;
+	font-family: sans-serif;
+}
+
+h1 {
+	text-align: center;
+}
+
+input[type = "text"] {
+	width: 100%;
+}
+
+form {
+	padding-left: 15%;
+	padding-right: 15%;
+}
+
+.flex {
+	display: flex;
+}
+
+select {
+	margin-top: 15px;
+	margin-left: 15px;
+}

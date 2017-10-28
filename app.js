@@ -27,6 +27,20 @@ function createTable() {
     document.getElementById("1").innerHTML = content;
 }
 
+function createTable2() {
+    var array = [["god bless",2,3,4],[4,5,6,4],[7,8,9,4]];
+    // var array = loadData();
+    var content = "";
+    array.forEach(function(row) {
+        content += "<tr>";
+        row.forEach(function(cell) {
+            content += "<td>" + cell + "</td>" ;
+        });
+        content += "</tr>";
+    });
+    document.getElementById("1").innerHTML = content;
+    document.getElementById("2").innerHTML = content;
+}
 
 
 

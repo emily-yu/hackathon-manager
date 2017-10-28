@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Judging Form</title>
+	<link rel="stylesheet" type="text/css" href="form.css">
+</head>
+<body>
+
+<h1>derp judging form</h1>
+<form action = "https://6a5c07db.ngrok.io/judge" method = "post">
+	<p>Judge Name:</p>
+	<input type="text" name="judgeName"><br>
+
+	<p>Project Name:</p>
+	<input type="text" name="projectName">
+
+	<div class = "flex">
+		<p>Criteria 1:</p>
+		<select name = "c1Rate">
+			<option value="5">5</option>
+			<option value="4">4</option>
+			<option value="3">3</option>
+			<option value="2">2</option>
+			<option value="1">1</option>
+		</select>
+	</div>
+	<p>Additional Notes:</p>
+	<textarea name = "c1Notes" cols="40" rows="5"></textarea>
+
+	<div class = "flex">
+		<p>Criteria 2:</p>
+		<select name = "c2Rate">
+			<option value="5">5</option>
+			<option value="4">4</option>
+			<option value="3">3</option>
+			<option value="2">2</option>
+			<option value="1">1</option>
+		</select>
+	</div>
+	<p>Additional Notes:</p>
+	<textarea name="c2Notes" cols="40" rows="5"></textarea>
+
+	<div class = "flex">
+		<p>Criteria 3:</p>
+		<select name = "c3Rate">
+			<option value="5">5</option>
+			<option value="4">4</option>
+			<option value="3">3</option>
+			<option value="2">2</option>
+			<option value="1">1</option>
+		</select>
+	</div>
+	<p>Additional Notes:</p>
+	<textarea name="c3Notes" cols="40" rows="5"></textarea>
+
+	<div class = "flex">
+		<p>Criteria 4:</p>
+		<select name = "c4Rate">
+			<option value="5">5</option>
+			<option value="4">4</option>
+			<option value="3">3</option>
+			<option value="2">2</option>
+			<option value="1">1</option>
+		</select>
+	</div>
+	<p>Additional Notes:</p>
+	<textarea name="c4Notes" cols="40" rows="5"></textarea>
+
+	<input type="submit" value="Submit">
+	<input type="reset">
+</form>
+
+</body>
+</html>
