@@ -59,7 +59,7 @@ $(document).ready(function() {
 });
 
 function processData(allText) {
-    var allTextLines = allText.split(/\r\n|\n/);
+    var allTextLines = allText.split(/\r\n|\n/);    y
     var headers = allTextLines[0].split(',');
     var lines = [];
 

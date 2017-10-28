@@ -9,6 +9,7 @@ import json
 import base64
 import csv
 import pandas
+import codecs
 
 array1 = list()
 array2 = list()
@@ -106,7 +107,6 @@ def output3():
 	return array3
 def output4():
 	return array4
-
 
 @app.route("/sendEmail")
 def send_simple_message():
