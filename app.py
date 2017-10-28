@@ -26,6 +26,7 @@ def hello():
 	return "hey its me"
 
 
+# write new user
 @app.route("/write")
 def newSheet():
 	# http://b99de565.ngrok.io/write?input=nam&email=edf&school=asdf
@@ -36,7 +37,7 @@ def newSheet():
 	school = request.args.get("school")
 	print(school)
 	row = [names, email, school]
-	with open('data.csv', "w") as f:
+	with open('data.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([names, email, school])
 	return "same"
