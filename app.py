@@ -45,7 +45,8 @@ def newSheet():
 		writer = csv.writer(f)
 		writer.writerow([''.join([names, " "]), ''.join([email, " "]), ''.join([school, " "])])
 	return "same"
-@app.route("/write")
+
+@app.route("/hardware")
 def newSheet2():
 	deviceName = request.args.get("deviceName")
 	print(deviceName)
@@ -58,7 +59,8 @@ def newSheet2():
 		writer = csv.writer(f)
 		writer.writerow([''.join([deviceName, " "]), ''.join([loanee, " "]), ''.join([cost, " "])])
 	return "same lmao"
-@app.route("/write")
+
+@app.route("/sponsors")
 def newSheet3():
 	companyName = request.args.get("companyName")
 	print(companyName)
