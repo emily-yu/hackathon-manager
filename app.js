@@ -41,38 +41,3 @@ function createTable2() {
     document.getElementById("1").innerHTML = content;
     document.getElementById("2").innerHTML = content;
 }
-
-
-
-$(document).ready(function() {
-    $.ajax({
-        type: "POST",
-        url: "data.csv",
-        dataType: "text",
-        data: {
-            html: csv
-        },
-        success: function(data) {
-            processData(data);
-        }
-    });
-});
-
-function processData(allText) {
-    var allTextLines = allText.split(/\r\n|\n/);    y
-    var headers = allTextLines[0].split(',');
-    var lines = [];
-
-    for (var i=1; i<allTextLines.length; i++) {
-        var data = allTextLines[i].split(',');
-        if (data.length == headers.length) {
-
-            var tarr = [];
-            for (var j=0; j<headers.length; j++) {
-                tarr.push(headers[j]+":"+data[j]);
-            }
-            lines.push(tarr);
-        }
-    }
-    console.log(lines);
-}
