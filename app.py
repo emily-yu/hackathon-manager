@@ -19,7 +19,7 @@ def hello():
 		for row in reader:
 			# each row is a user
 			print(row)
-	return "hey its me"
+	return "hey it's me"
 
 
 # write new user
@@ -35,7 +35,7 @@ def newSheet():
 	row = [names, email, school]
 	with open('data.csv', "a") as f:
 		writer = csv.writer(f)
-		writer.writerow([names, email, school])
+		writer.writerow([''.join([names, " "]), ''.join([email, " "]), ''.join([school, " "])])
 	return "same"
 
 @app.route("/sendEmail")
