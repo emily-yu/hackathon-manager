@@ -34,6 +34,10 @@ table, td {
 	border: 1px solid grey;
 }
 
+table {
+    width: 100%
+}
+
 h4 {
 	background-color: #519687;
 	padding: 17px;
