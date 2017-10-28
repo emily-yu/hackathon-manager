@@ -11,6 +11,7 @@ import csv
 import pandas
 import codecs
 
+'''
 global array1 
 array1 = []
 global array2
@@ -21,6 +22,7 @@ global array4
 array4 = []
 global array5
 array5 = []
+'''
 
 app = Flask(__name__)
 
@@ -59,7 +61,7 @@ def newSheet():
 	with open('data.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([name, " "]), ''.join([email, " "]), ''.join([school, " "])])
-		array1.append(''.join([name, " "]) + ''.join([email, " "]) + ''.join([school, " "]))
+		#array1.append(''.join([name, " "]) + ''.join([email, " "]) + ''.join([school, " "]))
 	return "Users"
 
 @app.route("/hardware")
@@ -71,7 +73,7 @@ def newSheet2():
 	with open('hardware.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([deviceName, " "]), ''.join([loanee, " "]), ''.join([cost, " "])])
-		array2.append(''.join([deviceName, " "]) + ''.join([loanee, " "]) + ''.join([cost, " "]))
+		#array2.append(''.join([deviceName, " "]) + ''.join([loanee, " "]) + ''.join([cost, " "]))
 	return "Hardware"
 
 @app.route("/sponsors")
@@ -84,7 +86,7 @@ def newSheet3():
 	with open('sponsors.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([companyName, " "]), ''.join([status, " "]), ''.join([proposal, " "]), ''.join([notes, " "])])
-		array3.append(''.join([companyName, " "]) + ''.join([status, " "]) + ''.join([proposal, " "]) + ''.join([notes, " "]))
+		#array3.append(''.join([companyName, " "]) + ''.join([status, " "]) + ''.join([proposal, " "]) + ''.join([notes, " "]))
 	return "Sponsors"
 
 @app.route("/judges")
@@ -105,7 +107,7 @@ def newSheet4():
 	with open('judges.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([judgeName, " "]), ''.join([projectName, " "]), ''.join([c1Grade, " "]), ''.join([c1Notes, " "]), ''.join([c2Grade, " "]), ''.join([c2Notes, " "]), ''.join([c3Grade, " "]), ''.join([c3Notes, " "]), ''.join([c4Grade, " "]), ''.join([c4Notes, " "]), ''.join([c5Grade, " "]), ''.join([c5Notes, " "])])
-		array4.append(''.join([judgeName, " "]) + ''.join([projectName, " "]) + ''.join([c1Grade, " "]) + ''.join([c1Notes, " "]) + ''.join([c2Grade, " "]) + ''.join([c2Notes, " "]) + ''.join([c3Grade, " "]) + ''.join([c3Notes, " "]) + ''.join([c4Grade, " "]) + ''.join([c4Notes, " "]) + ''.join([c5Grade, " "]) + ''.join([c5Notes, " "]))
+		#array4.append(''.join([judgeName, " "]) + ''.join([projectName, " "]) + ''.join([c1Grade, " "]) + ''.join([c1Notes, " "]) + ''.join([c2Grade, " "]) + ''.join([c2Notes, " "]) + ''.join([c3Grade, " "]) + ''.join([c3Notes, " "]) + ''.join([c4Grade, " "]) + ''.join([c4Notes, " "]) + ''.join([c5Grade, " "]) + ''.join([c5Notes, " "]))
 	return "judges"
 def newSheet5():
 	goals = request.args.get("goals")
@@ -114,23 +116,29 @@ def newSheet5():
 	with open('goals.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([goals, " "]), ''.join([emailList, " "])])
-		array5.append([''.join([goals, " "]), ''.join([emailList, " "])])
+		#array5.append([''.join([goals, " "]), ''.join([emailList, " "])])
 	return "goals"
 def output1():
-	for i in range (len (array1)):
-		return array1[i]
+	with open('data.csv') as f:
+   		s1 = f.read() + '\n' # add trailing new line character
+	return(repr(s1))
 def output2():
-	for i in range (len (array2)):
-		return array2[i]
+	with open('hardware.csv') as f:
+    	s1 = f.read() + '\n' # add trailing new line character
+	return(repr(s1))
 def output3():
-	for i in range (len (array3)):
-		return array3[i]
+	with open('sponsors.csv') as f:
+    	s1 = f.read() + '\n' # add trailing new line character
+	return(repr(s1))
 def output4():
-	for i in range (len (array4)):
-		return array4[i]
+	with open('judges.csv') as f:
+    	s1 = f.read() + '\n' # add trailing new line character
+	return(repr(s1))
 def output5():
-	for i in range (len (array5)):
-		return array5[i]
+	with open('goals.csv') as f:
+    	s1 = f.read() + '\n' # add trailing new line character
+	return(repr(s1))
+
 
 @app.route("/sendEmail")
 def send_simple_message():
