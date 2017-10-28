@@ -4,23 +4,51 @@ td {
 
 body {
 	display: grid;
+<<<<<<< HEAD
+    grid-template-columns: 15px 1fr;
+    grid-template-rows: 1000px 1fr;
+=======
     grid-template-columns: 200px 1fr;
     grid-template-rows: 1fr;
+    margin-bottom: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+>>>>>>> c123194a44df93268b9e9c99c17defa47d56e70b
     margin: 0;
     font-family: sans-serif;
 }
 
 .navbar {
-	    background-color: steelblue
+	background-color: #293a46;
 }
 .navbar-text {
 	color: white;
 }
+.navbar-content {
+	padding-top: 20px;
+    padding-left: 20px;
+}
 
 .main {
-	padding: 40px;
+	/*padding: 40px;*/
+	padding-top: 0px;
 }
 table, td {
 	background-color: lightgrey;
 	border: 1px solid grey;
 }
+<<<<<<< HEAD
+=======
+
+h4 {
+	background-color: #519687;
+	padding: 17px;
+    margin: 0;
+    color: white;
+}
+
+.content {
+	padding: 20px;
+}
+>>>>>>> c123194a44df93268b9e9c99c17defa47d56e70b
