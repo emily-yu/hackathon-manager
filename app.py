@@ -124,20 +124,20 @@ def output1():
 	return(repr(s1))
 def output2():
 	with open('hardware.csv') as f:
-		s1 = f.read() + '\n' # add trailing new line character
-	return(repr(s1))
+		s2 = f.read() + '\n' # add trailing new line character
+	return(repr(s2))
 def output3():
 	with open('sponsors.csv') as f:
-		s1 = f.read() + '\n' # add trailing new line character
-	return(repr(s1))
+		s3 = f.read() + '\n' # add trailing new line character
+	return(repr(s3))
 def output4():
 	with open('judges.csv') as f:
-		s1 = f.read() + '\n' # add trailing new line character
-	return(repr(s1))
+		s4 = f.read() + '\n' # add trailing new line character
+	return(repr(s4))
 def output5():
 	with open('goals.csv') as f:
-		s1 = f.read() + '\n' # add trailing new line character
-	return(repr(s1))
+		s5 = f.read() + '\n' # add trailing new line character
+	return(repr(s5))
 
 
 @app.route("/sendEmail")
