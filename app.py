@@ -49,7 +49,7 @@ def newSheet():
 	with open('data.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([name, " "]), ''.join([email, " "]), ''.join([school, " "])])
-		array1.append(row)
+		  array1.append(row)
 	return "Users"
 
 @app.route("/hardware")
