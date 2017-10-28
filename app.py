@@ -120,23 +120,23 @@ def newSheet5():
 	return "goals"
 def output1():
 	with open('data.csv') as f:
-   		s1 = f.read() + '\n' # add trailing new line character
+		s1 = f.read() + '\n' # add trailing new line character
 	return(repr(s1))
 def output2():
 	with open('hardware.csv') as f:
-    	s1 = f.read() + '\n' # add trailing new line character
+		s1 = f.read() + '\n' # add trailing new line character
 	return(repr(s1))
 def output3():
 	with open('sponsors.csv') as f:
-    	s1 = f.read() + '\n' # add trailing new line character
+		s1 = f.read() + '\n' # add trailing new line character
 	return(repr(s1))
 def output4():
 	with open('judges.csv') as f:
-    	s1 = f.read() + '\n' # add trailing new line character
+		s1 = f.read() + '\n' # add trailing new line character
 	return(repr(s1))
 def output5():
 	with open('goals.csv') as f:
-    	s1 = f.read() + '\n' # add trailing new line character
+		s1 = f.read() + '\n' # add trailing new line character
 	return(repr(s1))
 
 
