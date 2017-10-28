@@ -34,3 +34,7 @@ select {
 	margin-top: 15px;
 	margin-left: 15px;
 }
+
+textarea {
+	width: 100%;
+}
