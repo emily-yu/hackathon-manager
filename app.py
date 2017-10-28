@@ -98,13 +98,16 @@ def newSheet4():
 		array4.append(row)
 	return "judges"
 
-@app.route("/output")
+@app.route("/output1")
 def output1():
 	return array1
+@app.route("/output2")	
 def output2():
 	return array2
+@app.route("/output3")
 def output3():
 	return array3
+@app.route("/output4")
 def output4():
 	return array4
 
