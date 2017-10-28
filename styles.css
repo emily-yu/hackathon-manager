@@ -4,12 +4,17 @@ td {
 
 body {
 	display: grid;
+<<<<<<< HEAD
+    grid-template-columns: 15px 1fr;
+    grid-template-rows: 1000px 1fr;
+=======
     grid-template-columns: 200px 1fr;
     grid-template-rows: 1fr;
     margin-bottom: 0;
     position: absolute;
     height: 100%;
     width: 100%;
+>>>>>>> c123194a44df93268b9e9c99c17defa47d56e70b
     margin: 0;
     font-family: sans-serif;
 }
@@ -33,6 +38,8 @@ table, td {
 	background-color: lightgrey;
 	border: 1px solid grey;
 }
+<<<<<<< HEAD
+=======
 
 h4 {
 	background-color: #519687;
@@ -44,3 +51,4 @@ h4 {
 .content {
 	padding: 20px;
 }
+>>>>>>> c123194a44df93268b9e9c99c17defa47d56e70b
