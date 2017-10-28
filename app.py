@@ -105,10 +105,10 @@ def newSheet4():
 	c5Notes = request.args.get("c5Notes")
 	print(c5Notes)
 	row = [judgeName, projectName, c1Grade, c1Notes, c2Grade, c2Notes, c3Grade, c3Notes, c4Grade, c4Notes, c5Grade, c5Notes]
-	with open('sponsors.csv', "a") as f:
+	with open('judges.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([judgeName, " "]), ''.join([projectName, " "]), ''.join([c1Grade, " "]), ''.join([c1Notes, " "]), ''.join([c2Grade, " "]), ''.join([c2Notes, " "]), ''.join([c3Grade, " "]), ''.join([c3Notes, " "]), ''.join([c4Grade, " "]), ''.join([c4Notes, " "]), ''.join([c5Grade, " "]), ''.join([c5Notes, " "])])
-	return "Sponsors"
+	return "judges"
 
 
 
