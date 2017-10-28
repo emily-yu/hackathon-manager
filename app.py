@@ -42,6 +42,7 @@ def newSheet():
 		writer.writerow([''.join([names, " "]), ''.join([email, " "]), ''.join([school, " "])])
 	return "same"
 
+@app.route("/hardware")
 def newSheet2():
 	deviceName = request.args.get("deviceName")
 	print(deviceName)
