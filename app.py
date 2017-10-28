@@ -118,17 +118,13 @@ def newSheet5():
 		writer.writerow([''.join([goals, " "]), ''.join([emailList, " "])])
 		#array5.append([''.join([goals, " "]), ''.join([emailList, " "])])
 	return "goals"
-
-@app.route("/output1")
+	
 def output1():
 	with open('data.csv') as f:
 		s1 = f.read() + '\n' # add trailing new line character
 	return(repr(s1))
-
-@app.route("/output2")
 def output2():
 	with open('hardware.csv') as f:
-<<<<<<< HEAD
 		s2 = f.read() + '\n' # add trailing new line character
 	return(repr(s2))
 def output3():
@@ -143,28 +139,6 @@ def output5():
 	with open('goals.csv') as f:
 		s5 = f.read() + '\n' # add trailing new line character
 	return(repr(s5))
-=======
-		s1 = f.read() + '\n' # add trailing new line character
-	return(repr(s1))
-
-@app.route("/output3")
-def output3():
-	with open('sponsors.csv') as f:
-		s1 = f.read() + '\n' # add trailing new line character
-	return(repr(s1))
-
-@app.route("/output4")
-def output4():
-	with open('judges.csv') as f:
-		s1 = f.read() + '\n' # add trailing new line character
-	return(repr(s1))
-
-@app.route("/output5")
-def output5():
-	with open('goals.csv') as f:
-		s1 = f.read()# add trailing new line character
-	return(repr(s1))
->>>>>>> 1ae6a34c5e70e9d16196b3c310b655e1c9ba1bce
 
 
 @app.route("/sendEmail")
