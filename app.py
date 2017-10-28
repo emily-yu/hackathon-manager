@@ -19,6 +19,8 @@ global array3
 array3 = []
 global array4
 array4 = []
+global array5
+array5 = []
 
 app = Flask(__name__)
 
@@ -41,6 +43,11 @@ def hello():
 		reader4 = csv.reader(myFile4)
 		for row in reader4:
 			print(row)
+	with open('goals.csv', newline='') as myFile5:
+		reader5 = csv.reader(myFile5)
+		for row in reader5:
+			print(row)
+
 	return "hey it's me"
 
 @app.route("/users")
@@ -100,7 +107,15 @@ def newSheet4():
 		writer.writerow([''.join([judgeName, " "]), ''.join([projectName, " "]), ''.join([c1Grade, " "]), ''.join([c1Notes, " "]), ''.join([c2Grade, " "]), ''.join([c2Notes, " "]), ''.join([c3Grade, " "]), ''.join([c3Notes, " "]), ''.join([c4Grade, " "]), ''.join([c4Notes, " "]), ''.join([c5Grade, " "]), ''.join([c5Notes, " "])])
 		array4.append(''.join([judgeName, " "]) + ''.join([projectName, " "]) + ''.join([c1Grade, " "]) + ''.join([c1Notes, " "]) + ''.join([c2Grade, " "]) + ''.join([c2Notes, " "]) + ''.join([c3Grade, " "]) + ''.join([c3Notes, " "]) + ''.join([c4Grade, " "]) + ''.join([c4Notes, " "]) + ''.join([c5Grade, " "]) + ''.join([c5Notes, " "]))
 	return "judges"
-
+def newSheet5():
+	goals = request.args.get("goals")
+	emailList = request.args.get("emailList")
+	row = [goals, emailList]
+	with open('goals.csv', "a") as f:
+		writer = csv.writer(f)
+		writer.writerow([''.join([goals, " "]), ''.join([emailList, " "])])
+		array5.append([''.join([goals, " "]), ''.join([emailList, " "])])
+	return "goals"
 def output1():
 	for i in range (len (array1)):
 		return array1[i]
@@ -113,6 +128,9 @@ def output3():
 def output4():
 	for i in range (len (array4)):
 		return array4[i]
+def output5():
+	for i in range (len (array5)):
+		return array5[i]
 
 @app.route("/sendEmail")
 def send_simple_message():
