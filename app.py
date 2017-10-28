@@ -12,13 +12,13 @@ import pandas
 import codecs
 
 global array1 
-array1 = list()
+array1 = []
 global array2
-array2 = list()
+array2 = []
 global array3
-array3 = list()
+array3 = []
 global array4
-array4 = list()
+array4 = []
 
 app = Flask(__name__)
 
