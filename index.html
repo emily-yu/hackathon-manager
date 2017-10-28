@@ -8,47 +8,16 @@
 
 <section class = "navbar">
 	<div class = "navbar-content">
-		<a href = "#first">Home</a>
-		<a href = "#second">Users</a>
-		<a href = "#third">Hardware</a>
-		<a href = "#fourth">Milestones</a>
-		<a href = "#fourth">Judging</a>
-		<a href = "#fourth">Details</a>
+		<a href = "index.html">Home</a>
+		<a href = "users.html">Users</a>
+		<a href = "hardware.html">Hardware</a>
+		<a href = "milestones.html">Milestones</a>
+		<a href = "judging.html">Judging</a>
 	</div>
 </section>
 
 <table id="1"></table>
 
-<script>
-function loadData() {
-	function csvToArray (csv) {
-	    rows  = csv.split("\n");
-	    return rows.map(function (row) {
-	    	return row.split(",");
-	    });
-	};
-
-	// Hard-coded for brevity, but you can set this variable with FileReader
-	var csv = CSVParse("data.csv")
-
-	var array = csvToArray(csv);
-	return array;
-}
-
-function createTable() {
-    var array = [["god bless",2,3,4],[4,5,6,4],[7,8,9,4]];
-    // var array = loadData();
-    var content = "";
-    array.forEach(function(row) {
-        content += "<tr>";
-        row.forEach(function(cell) {
-            content += "<td>" + cell + "</td>" ;
-        });
-        content += "</tr>";
-    });
-    document.getElementById("1").innerHTML = content;
-}
-</script>
-
 </body>
+<script src = "app.js"></script>
 </html>
