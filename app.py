@@ -19,11 +19,11 @@ array4 = list()
 app = Flask(__name__)
 
 @app.route("/")
+#Each row is a user
 def hello():
-	with open('data.csv', newline='') as myFile:  
-		reader = csv.reader(myFile)
-		for row in reader:
-			# each row is a user
+	with open('data.csv', newline='') as myFile1:  
+		reader1 = csv.reader(myFile1)
+		for row in reader1:
 			print(row)
 	with open('hardware.csv', newline='') as myFile2:
 		reader2 = csv.reader(myFile2)
