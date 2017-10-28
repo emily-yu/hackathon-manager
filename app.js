@@ -84,8 +84,9 @@ function createNTable(array) {
 // if n = 3, then [[a, b, c], [a , b, c]]
 function same(n, csv){
     var temp = new Array();
-    // this will return an array with strings "1", "2", etc.
-    temp = csv.split(",");
+    temp = csv.split('\n');
+    temp = temp.toString().split(',');
+    temp = temp.toString().split(/[ ,]+/);
     var fullArray = []
     var avgArray = []
     for(i = 0; i < temp.length; i+=1) { 
