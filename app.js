@@ -1,13 +1,19 @@
-function httpGetAsync(theUrl, callback)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            callback(xmlHttp.responseText);
-    }
-    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-    xmlHttp.send(null);
-}
+// var request = new XMLHttpRequest();
+// var cors = require('cors')
+
+// request.onreadystatechange = function() {
+//     if (request.readyState === 4) {
+//         if (request.status === 200) {
+//             document.body.className = 'ok';
+//             console.log(request.responseText);
+//         } else {
+//             document.body.className = 'error';
+//         }
+//     }
+// };
+
+// request.open("GET", "https://806927e2.ngrok.io/output1" , true);
+// request.send(null);
 
 var csv = "city,state,population,land area, seattle,WA,652405,83.9, new york,NY,8405837,302.6, boston,MA,645966,48.3, kansas city,MO,467007,315.0"
 
@@ -76,7 +82,7 @@ function createNTable(array) {
 
 // array with n strings inside each array
 // if n = 3, then [[a, b, c], [a , b, c]]
-function same(n){
+function same(n, csv){
     var temp = new Array();
     // this will return an array with strings "1", "2", etc.
     temp = csv.split(",");
@@ -95,3 +101,15 @@ function same(n){
     console.log(fullArray)
     createNTable(fullArray)
 }
+
+
+
+
+// // // get data
+// function output1() {
+//     var client = new HttpClient();
+//     client.get('https://806927e2.ngrok.io/output1', function(response) {
+//         // do something with response
+//         console.log(response)
+//     });
+// }

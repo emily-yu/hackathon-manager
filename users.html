@@ -4,7 +4,7 @@
 	<title>Users</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body onload = "httpGetAsync('http://806927e2.ngrok.io/output1', same(3))">
+<body onload = "output1()">
 
 <section class = "navbar">
 	<div class = "navbar-content">
@@ -48,4 +48,21 @@
 </body>
 
 <script src = "app.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+function output1() {
+	var myUrl = 'https://806927e2.ngrok.io/output1';
+	var proxy = 'https://cors-anywhere.herokuapp.com/';
+
+	$.ajax({
+	    url: proxy + myUrl,
+	    complete: function(data){
+	        console.log(data.responseText);
+	        same(3, data.responseText);
+	    }
+	});
+
+}
+</script>
 </html>
