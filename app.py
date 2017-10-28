@@ -16,6 +16,12 @@ app = Flask(__name__)
 def hello():
 	with open('data.csv', newline='') as myFile:  
 		reader = csv.reader(myFile)
+		array = list();
+		for row in reader:
+			letterVal = ord(row[0][0])
+			array.append(letterVal)
+		mergeSort(array)
+
 		for row in reader:
 			# each row is a user
 			print(row)
@@ -28,22 +34,32 @@ def hello():
 		for row in reader3:
 			print(row)
 	return "hey it's me"
-
-
+def mergeSort(x):
+    if len(x) < 2: 
+    	return x
+    sortedArray, mid = [], int(len(x)/2)
+    a = mergeSort(x[:mid])
+    b = mergeSort(x[mid:])
+    while (len(a) > 0) and (len(b) > 0):
+        if a[0] > b[0]: 
+        	sortedArray.append(b.pop(0))   
+        else:sortedArray.append(a.pop(0))
+    sortedArray.extend(a + b)
+    return sortedArray
 # write new user
 @app.route("/write")
 def newSheet():
 	# http://b99de565.ngrok.io/write?input=nam&email=edf&school=asdf
-	names = request.args.get("input")
-	print(names)
+	name = request.args.get("input")
+	print(name)
 	email = request.args.get("email")
 	print(email)
 	school = request.args.get("school")
 	print(school)
-	row = [names, email, school]
+	row = [name, email, school]
 	with open('data.csv', "a") as f:
 		writer = csv.writer(f)
-		writer.writerow([''.join([names, " "]), ''.join([email, " "]), ''.join([school, " "])])
+		writer.writerow([''.join([name, " "]), ''.join([email, " "]), ''.join([school, " "])])
 	return "same"
 
 @app.route("/hardware")
