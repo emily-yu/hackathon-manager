@@ -3,8 +3,9 @@ td {
 }
 
 body {
-	    display: grid;
+	display: grid;
     grid-template-columns: 200px 1fr;
+    grid-template-rows: 1fr;
     margin: 0;
 }
 
@@ -13,4 +14,12 @@ body {
 }
 .navbar-text {
 	color: white;
+}
+
+.main {
+	padding: 40px;
+}
+table, td {
+	background-color: lightgrey;
+	border: 1px solid grey;
 }
