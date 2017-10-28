@@ -12,10 +12,6 @@ import pandas
 
 app = Flask(__name__)
 
-# names = ['101', '102', '36', '40']
-# school = ['NUC_A', 'NUC_B', 'CATDOG', 'HYDRO_A']
-# email = [.99, 1.02, 1.01, 1.00]
-
 @app.route("/")
 def hello():
 	with open('data.csv', newline='') as myFile:  
@@ -42,6 +38,24 @@ def newSheet():
 		writer.writerow([names, email, school])
 	return "same"
 
+@app.route("/sendEmail")
+def send_simple_message():
+	# http://b99de565.ngrok.io/sendEmail?name=bob&email=eyudeveloper@gmail.com&subject=same&text=hahahahahasmaeaseas
+	name = request.args.get("name")
+	email = request.args.get("email")
+	subject = request.args.get("subject")
+	textLine = request.args.get("text")
+	return requests.post(
+		"https://api.mailgun.net/v3/sandboxc5380f848a684d4aa86069c1308d4884.mailgun.org/messages",
+		auth=("api", "key-ef2d27e2ebe2754a5335866944846055"),
+		data={"from": "PalyHacks <info@palyhacks.io>",
+		# "to": "HM <eyudeveloper@gmail.com>",
+		"to" : name + " <" + email + ">",
+		# "subject": "Hello HM",
+		"subject" : subject,
+		# "text": "Congratulations HM, you just sent an email with Mailgun!  You are truly awesome!"
+		"text" : textLine,
+		})
 
 if __name__ == '__main__':
         app.run()
