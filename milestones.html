@@ -43,27 +43,41 @@
 	<div class = "content">
 
 		<form>
-			<p>Current Set Date:</p>
+			<p>Current Set Date: 01-19-2018 </p>
 			<input type="date" name="bday">
+
 			<input type="submit">
 		</form>
 
 		<table style = "margin-top: 20px; width: 100%">
-			<tr class = "content">
-				<td>same</td> 
-				<td>same</td> 
+			<tr class = "content1">
+				<td>07-19-18: Get date and venue finalized</td>
+				<td style = "color: green">Completed</td>
+			</tr>
+			<tr class = "content2">
+				<td>08-19-18: Complete Sponsorship Package</td>
+				<td style = "color: green">Completed</td>
+			</tr>
+			<tr class = "content3">
+				<td>09-19-18: Acquire substantial budget</td>
+				<td style = "color: #eab425">In Progress</td>
 			</tr>
 			<tr class = "content">
-				<td>same</td> 
-				<td>same</td> 
-			</tr>
-			<tr class = "content">
-				<td>same</td> 
-				<td>same</td> 
-			</tr>
-			<tr class = "content">
-				<td>same</td> 
-				<td>same</td> 
+				<td>01-12-18: Send out reminder and additional logistics</td> 
+				<td>
+					<script>
+					function httpGet(theUrl) {
+					    var xmlHttp = new XMLHttpRequest();
+					    xmlHttp.open( "GET", theUrl, false ); // false for synchronous request
+					    xmlHttp.send( null );
+					    return xmlHttp.responseText;
+					}
+					</script>
+					<form>
+						<button onclick = "httpGet('https://6a5c07db.ngrok.io/sendEmail?name=PalyHacks&email=eyudeveloper@gmail.com&subject=Hackathon&text=UpcomingHackathonomghello')" style = "padding: 7px; font-size: 14px;">Email</button>
+					</form>
+				</td>
+				<!-- ok for this just pretend it sends to all the users and show just one email -->
 			</tr>
 		</table>
 	</div>
