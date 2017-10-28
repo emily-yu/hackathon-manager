@@ -19,6 +19,10 @@ def hello():
 		for row in reader:
 			# each row is a user
 			print(row)
+	with open('hardware.csv', newline='') as myFile2:
+		reader = csv.reader(myFile2)
+		for row in reader:
+			print(row)
 	return "hey it's me"
 
 
@@ -37,6 +41,19 @@ def newSheet():
 		writer = csv.writer(f)
 		writer.writerow([''.join([names, " "]), ''.join([email, " "]), ''.join([school, " "])])
 	return "same"
+
+def newSheet2():
+	deviceName = request.args.get("deviceName")
+	print(deviceName)
+	loanee = request.args.get("loanee")
+	print(loanee)
+	cost = request.args.get("cost")
+	print(cost)
+	row = [deviceName, loanee, cost]
+	with open('hardware.csv', "a") as f:
+		writer = csv.writer(f)
+		writer.writerow([''.join([deviceName, " "]), ''.join([loanee, " "]), ''.join([cost, " "])])
+	return "same lmao"
 
 @app.route("/sendEmail")
 def send_simple_message():
