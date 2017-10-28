@@ -4,8 +4,8 @@ td {
 
 body {
 	display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-template-rows: 1fr;
+    grid-template-columns: 15px 1fr;
+    grid-template-rows: 1000px 1fr;
     margin: 0;
     font-family: sans-serif;
 }
