@@ -9,6 +9,7 @@ import json
 import base64
 import csv
 import pandas
+import codecs
 
 app = Flask(__name__)
 
@@ -109,9 +110,6 @@ def newSheet4():
 		writer = csv.writer(f)
 		writer.writerow([''.join([judgeName, " "]), ''.join([projectName, " "]), ''.join([c1Grade, " "]), ''.join([c1Notes, " "]), ''.join([c2Grade, " "]), ''.join([c2Notes, " "]), ''.join([c3Grade, " "]), ''.join([c3Notes, " "]), ''.join([c4Grade, " "]), ''.join([c4Notes, " "]), ''.join([c5Grade, " "]), ''.join([c5Notes, " "])])
 	return "judges"
-
-
-
 
 @app.route("/sendEmail")
 def send_simple_message():
