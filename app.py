@@ -152,7 +152,6 @@ def output5():
 
 @app.route("/sendEmail")
 def send_simple_message():
-	# http://b99de565.ngrok.io/sendEmail?name=bob&email=eyudeveloper@gmail.com&subject=same&text=hahahahahasmaeaseas
 	name = request.args.get("name")
 	email = request.args.get("email")
 	subject = request.args.get("subject")

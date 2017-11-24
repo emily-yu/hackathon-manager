@@ -3,6 +3,7 @@
 <head>
 	<title>Milestones</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
+	<script src = "global.js"></script>
 </head>
 <body onload = "createTable()">
 
@@ -74,7 +75,7 @@
 					}
 					</script>
 					<form>
-						<button onclick = "httpGet('https://6a5c07db.ngrok.io/sendEmail?name=PalyHacks&email=eyudeveloper@gmail.com&subject=Hackathon&text=UpcomingHackathonomghello')" style = "padding: 7px; font-size: 14px;">Email</button>
+						<button onclick = "httpGet(getNgrok() + 'sendEmail?name=PalyHacks&email=eyudeveloper@gmail.com&subject=Hackathon&text=UpcomingHackathonomghello')" style = "padding: 7px; font-size: 14px;">Email</button>
 					</form>
 				</td>
 				<!-- ok for this just pretend it sends to all the users and show just one email -->

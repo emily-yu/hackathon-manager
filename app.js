@@ -12,8 +12,6 @@
 //     }
 // };
 
-// request.open("GET", "https://806927e2.ngrok.io/output1" , true);
-// request.send(null);
 
 var csv = "city,state,population,land area, seattle,WA,652405,83.9, new york,NY,8405837,302.6, boston,MA,645966,48.3, kansas city,MO,467007,315.0"
 
