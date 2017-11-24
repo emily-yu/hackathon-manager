@@ -6,5 +6,11 @@ Procurator is a web application meant to assist evnet organizers while organizin
 	cd init
 	sh generate.sh
 	
+### Usage
+	./ngrok http 5000
+	python app.py
+	
+Copy paste the ngrok link into `global.js`'s variable named ngrok, then open `index.html`
+
 ### Improvements
 * port CSV data storage to a more collaborative data storage
