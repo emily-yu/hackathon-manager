@@ -1,8 +1,6 @@
 from flask import Flask, request
 import urllib.request
-# from bottle import route, run, template, static_file, get, post, request
 import requests
-# from secret import getSID, getAuth, getAuthy
 import string
 import re
 import json
@@ -10,19 +8,7 @@ import base64
 import csv
 import pandas
 import codecs
-
-'''
-global array1 
-array1 = []
-global array2
-array2 = []
-global array3
-array3 = []
-global array4
-array4 = []
-global array5
-array5 = []
-'''
+import os
 
 app = Flask(__name__)
 
@@ -33,19 +19,19 @@ def hello():
 		reader1 = csv.reader(myFile1)
 		for row in reader1:
 			print(row)
-	with open('hardware.csv', newline='') as myFile2:
+	with open(os.getcwd() + '/application/hardware.csv', newline='') as myFile2:
 		reader2 = csv.reader(myFile2)
 		for row in reader2:
 			print(row)
-	with open('sponsors.csv', newline='') as myFile3:
+	with open(os.getcwd() + '/application/sponsors.csv', newline='') as myFile3:
 		reader3 = csv.reader(myFile3)
 		for row in reader3:
 			print(row)
-	with open('judges.csv', newline='') as myFile4:
+	with open(os.getcwd() + '/application/judges.csv', newline='') as myFile4:
 		reader4 = csv.reader(myFile4)
 		for row in reader4:
 			print(row)
-	with open('goals.csv', newline='') as myFile5:
+	with open(os.getcwd() + '/application/goals.csv', newline='') as myFile5:
 		reader5 = csv.reader(myFile5)
 		for row in reader5:
 			print(row)
@@ -58,7 +44,7 @@ def newSheet():
 	email = request.args.get("email")
 	school = request.args.get("school")
 	row = [name, email, school]
-	with open('data.csv', "a") as f:
+	with open(os.getcwd() + '/application/data.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([name, " "]), ''.join([email, " "]), ''.join([school, " "])])
 		#array1.append(''.join([name, " "]) + ''.join([email, " "]) + ''.join([school, " "]))
@@ -70,7 +56,7 @@ def newSheet2():
 	loanee = request.args.get("loanee")
 	cost = request.args.get("cost")
 	row = [deviceName, loanee, cost]
-	with open('hardware.csv', "a") as f:
+	with open(os.getcwd() + '/application/hardware.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([deviceName, " "]), ''.join([loanee, " "]), ''.join([cost, " "])])
 		#array2.append(''.join([deviceName, " "]) + ''.join([loanee, " "]) + ''.join([cost, " "]))
@@ -83,7 +69,7 @@ def newSheet3():
 	proposal = request.args.get("proposal")
 	notes  = request.args.get("notes")
 	row = [companyName, status, proposal, notes]
-	with open('sponsors.csv', "a") as f:
+	with open(os.getcwd() + '/application/sponsors.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([companyName, " "]), ''.join([status, " "]), ''.join([proposal, " "]), ''.join([notes, " "])])
 		#array3.append(''.join([companyName, " "]) + ''.join([status, " "]) + ''.join([proposal, " "]) + ''.join([notes, " "]))
@@ -104,7 +90,7 @@ def newSheet4():
 	c5Grade = request.args.get("c5Grade")
 	c5Notes = request.args.get("c5Notes")
 	row = [judgeName, projectName, c1Grade, c1Notes, c2Grade, c2Notes, c3Grade, c3Notes, c4Grade, c4Notes, c5Grade, c5Notes]
-	with open('judges.csv', "a") as f:
+	with open(os.getcwd() + '/application/judges.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([judgeName, " "]), ''.join([projectName, " "]), ''.join([c1Grade, " "]), ''.join([c1Notes, " "]), ''.join([c2Grade, " "]), ''.join([c2Notes, " "]), ''.join([c3Grade, " "]), ''.join([c3Notes, " "]), ''.join([c4Grade, " "]), ''.join([c4Notes, " "]), ''.join([c5Grade, " "]), ''.join([c5Notes, " "])])
 		#array4.append(''.join([judgeName, " "]) + ''.join([projectName, " "]) + ''.join([c1Grade, " "]) + ''.join([c1Notes, " "]) + ''.join([c2Grade, " "]) + ''.join([c2Notes, " "]) + ''.join([c3Grade, " "]) + ''.join([c3Notes, " "]) + ''.join([c4Grade, " "]) + ''.join([c4Notes, " "]) + ''.join([c5Grade, " "]) + ''.join([c5Notes, " "]))
@@ -113,7 +99,7 @@ def newSheet5():
 	goals = request.args.get("goals")
 	emailList = request.args.get("emailList")
 	row = [goals, emailList]
-	with open('goals.csv', "a") as f:
+	with open(os.getcwd() + '/application/goals.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([goals, " "]), ''.join([emailList, " "])])
 		#array5.append([''.join([goals, " "]), ''.join([emailList, " "])])
@@ -121,31 +107,32 @@ def newSheet5():
 
 @app.route("/output1")
 def output1():
-	with open('data.csv') as f:
+	with open(os.getcwd() + '/application/data.csv') as f:
 		s1 = f.read() + '\n' # add trailing new line character
 	return(s1)
 
 @app.route("/output2")
 def output2():
-	with open('hardware.csv') as f:
+	# asdf
+	with open(os.getcwd() + '/application/hardware.csv') as f:
 		s2 = f.read() + '\n' # add trailing new line character
 	return(s2)
 
 @app.route("/output3")	
 def output3():
-	with open('sponsors.csv') as f:
+	with open(os.getcwd() + '/application/sponsors.csv') as f:
 		s3 = f.read() + '\n' # add trailing new line character
 	return(s3)
 
 @app.route("/output4")
 def output4():
-	with open('judges.csv') as f:
+	with open(os.getcwd() + '/application/judges.csv') as f:
 		s4 = f.read() + '\n' # add trailing new line character
 	return(s4)
 
 @app.route("/output5")
 def output5():
-	with open('goals.csv') as f:
+	with open(os.getcwd() + '/application/goals.csv') as f:
 		s5 = f.read() + '\n' # add trailing new line character
 	return(s5)
 
