@@ -41,7 +41,13 @@
 		<h4>HARDWARE</h4>
 	</div>
 	<div class = "content">
-		<table id="1"></table>
+		<table id="1">
+			<tr>
+				<th>Hardware</th>
+				<th>Loanee</th>
+				<th>Item Value</th>
+			</tr>
+		</table>
 	</div>
 </section>
 
@@ -56,7 +62,7 @@ function output2() {
 
 	$.ajax({
 	    url: proxy + myUrl,
-	    complete: function(data){
+	    complete: function(data) {
 	        console.log(data.responseText);
 	        same(3, data.responseText);
 	    }

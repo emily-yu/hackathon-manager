@@ -68,7 +68,7 @@ function createNTable(array) {
         });
         content += "</tr>";
     });
-    document.getElementById("1").innerHTML = content;
+    document.getElementById("1").innerHTML += content;
 }
 
 function same(n, csv) {
