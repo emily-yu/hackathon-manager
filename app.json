@@ -1,0 +1,7 @@
+{
+  "name": "Hackathon Manager",
+  "description": "A server for your hackathon data.",
+  "repository": "https://github.com/heroku/node-js-sample",
+  "logo": "https://github.com/emily-yu/hackathon-manager.git",
+  "keywords": ["flask", "python"]
+}
