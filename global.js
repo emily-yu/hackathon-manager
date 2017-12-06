@@ -1,4 +1,4 @@
-var ngrok = 'http://7c0eb850.ngrok.io/'
+var ngrok = 'https://pacific-escarpment-47591.herokuapp.com/'
 
 function getNgrok() {
 	return ngrok;

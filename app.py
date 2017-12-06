@@ -57,7 +57,7 @@ def newSheet2():
 	row = [deviceName, loanee, cost]
 	with open(os.getcwd() + '/application/hardware.csv', "a") as f:
 		writer = csv.writer(f)
-		writer.writerow([''.join([deviceName, " "]), ''.join([loanee, " "]), ''.join([cost, " "])])
+		writer.writerow([''.join([deviceName, " "]), ''.join([loanee, " "]), ''.join([cost, " ,,"])])
 		#array2.append(''.join([deviceName, " "]) + ''.join([loanee, " "]) + ''.join([cost, " "]))
 	return "Hardware"
 
