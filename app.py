@@ -6,7 +6,6 @@ import re
 import json
 import base64
 import csv
-import pandas
 import codecs
 import os
 

@@ -1,4 +1,4 @@
-var ngrok = 'http://c2d5f006.ngrok.io/'
+var ngrok = 'http://7c0eb850.ngrok.io/'
 
 function getNgrok() {
 	return ngrok;
