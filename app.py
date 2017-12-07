@@ -45,7 +45,7 @@ def newSheet():
 	row = [name, email, school]
 	with open(os.getcwd() + '/application/data.csv', "a") as f:
 		writer = csv.writer(f)
-		writer.writerow([''.join([name, " "]), ''.join([email, " "]), ''.join([school, " "])])
+		writer.writerow([''.join([name, " "]), ''.join([email, " "]), ''.join([school, " ,,"])])
 		#array1.append(''.join([name, " "]) + ''.join([email, " "]) + ''.join([school, " "]))
 	return "Users"
 
@@ -70,7 +70,7 @@ def newSheet3():
 	row = [companyName, status, proposal, notes]
 	with open(os.getcwd() + '/application/sponsors.csv', "a") as f:
 		writer = csv.writer(f)
-		writer.writerow([''.join([companyName, " "]), ''.join([status, " "]), ''.join([proposal, " "]), ''.join([notes, " "])])
+		writer.writerow([''.join([companyName, " "]), ''.join([status, " "]), ''.join([proposal, " "]), ''.join([notes, " ,,"])])
 		#array3.append(''.join([companyName, " "]) + ''.join([status, " "]) + ''.join([proposal, " "]) + ''.join([notes, " "]))
 	return "Sponsors"
 
@@ -91,7 +91,7 @@ def newSheet4():
 	row = [judgeName, projectName, c1Grade, c1Notes, c2Grade, c2Notes, c3Grade, c3Notes, c4Grade, c4Notes, c5Grade, c5Notes]
 	with open(os.getcwd() + '/application/judges.csv', "a") as f:
 		writer = csv.writer(f)
-		writer.writerow([''.join([judgeName, " "]), ''.join([projectName, " "]), ''.join([c1Grade, " "]), ''.join([c1Notes, " "]), ''.join([c2Grade, " "]), ''.join([c2Notes, " "]), ''.join([c3Grade, " "]), ''.join([c3Notes, " "]), ''.join([c4Grade, " "]), ''.join([c4Notes, " "]), ''.join([c5Grade, " "]), ''.join([c5Notes, " "])])
+		writer.writerow([''.join([judgeName, " "]), ''.join([projectName, " "]), ''.join([c1Grade, " "]), ''.join([c1Notes, " "]), ''.join([c2Grade, " "]), ''.join([c2Notes, " "]), ''.join([c3Grade, " "]), ''.join([c3Notes, " "]), ''.join([c4Grade, " "]), ''.join([c4Notes, " "]), ''.join([c5Grade, " "]), ''.join([c5Notes, " ,,"])])
 		#array4.append(''.join([judgeName, " "]) + ''.join([projectName, " "]) + ''.join([c1Grade, " "]) + ''.join([c1Notes, " "]) + ''.join([c2Grade, " "]) + ''.join([c2Notes, " "]) + ''.join([c3Grade, " "]) + ''.join([c3Notes, " "]) + ''.join([c4Grade, " "]) + ''.join([c4Notes, " "]) + ''.join([c5Grade, " "]) + ''.join([c5Notes, " "]))
 	return "judges"
 def newSheet5():
@@ -100,7 +100,7 @@ def newSheet5():
 	row = [goals, emailList]
 	with open(os.getcwd() + '/application/goals.csv', "a") as f:
 		writer = csv.writer(f)
-		writer.writerow([''.join([goals, " "]), ''.join([emailList, " "])])
+		writer.writerow([''.join([goals, " "]), ''.join([emailList, " ,,"])])
 		#array5.append([''.join([goals, " "]), ''.join([emailList, " "])])
 	return "goals"
 
