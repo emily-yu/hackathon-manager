@@ -97,12 +97,12 @@ def newSheet4():
 
 @app.route("/goals")
 def newSheet5():
-	goals = request.args.get("goals")
-	emailList = request.args.get("emailList")
+	goals = request.args.get("date")
+	emailList = request.args.get("milestone")
 	row = [goals, emailList]
 	with open(os.getcwd() + '/application/goals.csv', "a") as f:
 		writer = csv.writer(f)
-		writer.writerow([''.join([goals, " "]), ''.join([emailList, " ,,"])])
+		writer.writerow([''.join([goals, " "]), ''.join([emailList, " "]), ''.join(["N/A ,,"])])
 		#array5.append([''.join([goals, " "]), ''.join([emailList, " "])])
 	return "goals"
 

@@ -48,3 +48,50 @@ h4 {
 .content {
 	padding: 20px;
 }
+
+form {
+	padding: 20px;
+}
+
+form > .container {
+	padding: 10px;
+	border: 0.01em solid grey;
+}
+
+.projected-date {
+	color: #519687;
+	padding-left: 20px;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+
+form > .container > input[type="text"],input[type="date"] {
+	background-color: lightgrey;
+    /* background-color: white; */
+    height: 30px;
+    font-family: sans-serif;
+}
+
+form > .container > input[type="text"] {
+	width: 75%;
+}
+form > .container > input[type="date"] {
+	width: 20%;
+}
+form > .container > input[type="submit"] {
+	background: #293a46;
+	color: white;
+	border-style: outset;
+	border-color: #293a46;
+	height: 40px;
+	width: 98%;
+	font: bold 15px arial, sans-serif;
+	text-shadow:none;
+	margin-top: 10px;
+	transition: all .35s;
+}
+form > .container > input[type="submit"]:hover {
+	background: #172a38;
+	border-color: #172a38;
+	color: white;
+}
