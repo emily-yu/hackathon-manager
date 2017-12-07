@@ -5,7 +5,7 @@
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	<script src = "global.js"></script>
 </head>
-<body onload = "createTable()">
+<body onload = "output5()">
 
 <section class = "navbar">
 	<div class = "navbar-content">
@@ -41,7 +41,20 @@
 	<div class = "header">
 		<h4>MILESTONES</h4>
 	</div>
-	<div class = "content">
+
+	<p class = "projected-date">CURRENT PROJECTED DATE: 01-19-2018 </p>
+
+	<form>
+		<h4>ADD NEW</h4>
+		<div class = "container">
+			<input type = "date">
+			<input type = "text">
+			<br>
+			<input type = "submit">
+		</div>
+	</form>
+
+<!-- 	<div class = "content">
 
 		<form>
 			<p>Current Set Date: 01-19-2018 </p>
@@ -82,7 +95,15 @@
 						<button onclick = "httpGet(getNgrok() + 'sendEmail?name=PalyHacks&email=eyudeveloper@gmail.com&subject=Hackathon&text=UpcomingHackathonomghello')" style = "padding: 7px; font-size: 14px;">Email</button>
 					</form>
 				</td>
-				<!-- ok for this just pretend it sends to all the users and show just one email -->
+			</tr>
+		</table>
+	</div> -->
+	<div class = "content">
+		<h4>ALL MILESTONES</h4>
+		<table id="1">
+			<tr>
+				<th>Hardware</th>
+				<th>Loanee</th>
 			</tr>
 		</table>
 	</div>
@@ -91,4 +112,23 @@
 </body>
 
 <script src = "app.js"></script>
+<script src = "global.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+function output5() {
+	var myUrl = getNgrok() + 'output5';
+	var proxy = 'https://cors-anywhere.herokuapp.com/';
+
+	$.ajax({
+	    url: proxy + myUrl,
+	    complete: function(data){
+	        console.log(data.responseText);
+	        same(3, data.responseText);
+	    }
+	});
+}
+
+</script>
+
 </html>

@@ -94,6 +94,8 @@ def newSheet4():
 		writer.writerow([''.join([judgeName, " "]), ''.join([projectName, " "]), ''.join([c1Grade, " "]), ''.join([c1Notes, " "]), ''.join([c2Grade, " "]), ''.join([c2Notes, " "]), ''.join([c3Grade, " "]), ''.join([c3Notes, " "]), ''.join([c4Grade, " "]), ''.join([c4Notes, " "]), ''.join([c5Grade, " "]), ''.join([c5Notes, " ,,"])])
 		#array4.append(''.join([judgeName, " "]) + ''.join([projectName, " "]) + ''.join([c1Grade, " "]) + ''.join([c1Notes, " "]) + ''.join([c2Grade, " "]) + ''.join([c2Notes, " "]) + ''.join([c3Grade, " "]) + ''.join([c3Notes, " "]) + ''.join([c4Grade, " "]) + ''.join([c4Notes, " "]) + ''.join([c5Grade, " "]) + ''.join([c5Notes, " "]))
 	return "judges"
+
+@app.route("/goals")
 def newSheet5():
 	goals = request.args.get("goals")
 	emailList = request.args.get("emailList")
@@ -134,7 +136,6 @@ def output5():
 	with open(os.getcwd() + '/application/goals.csv') as f:
 		s5 = f.read() + '\n' # add trailing new line character
 	return(s5)
-
 
 @app.route("/sendEmail")
 def send_simple_message():
