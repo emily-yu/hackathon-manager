@@ -9,7 +9,7 @@ Clone the repository and run the application generation scripts.
 	cd init
 	sh generate.sh
 
-Make sure you have a [Heroku](https://signup.heroku.com/) account and deploy your own app using the following button or run the heroku.sh script in the init folder by `sh heroku.sh`.
+Make sure you have a [Heroku](https://signup.heroku.com/) account and deploy your own app using the following button or run the `heroku.sh` script in the init folder by `sh heroku.sh`.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/emily-yu/hackathon-manager)
 
@@ -18,4 +18,4 @@ Open `global.js` and replace the variable ngrok with your Heroku app name, which
 	var ngrok = <YOUR-HEROKU-APP-URL>
 	
 ### Usage
-Run the installation instructions, then open `index.html`
+Run the installation instructions, then open `index.html`.
