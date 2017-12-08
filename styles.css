@@ -1,5 +1,17 @@
 td {
-	padding: 20px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+tr {
+	height: 40px;
+}
+
+th {
+	background-color: white;
+    color: grey;
+    /* z-index: 200; */
+    background: linear-gradient(white 90%, lightgrey, lightgrey 8%);
 }
 
 body {
@@ -12,6 +24,7 @@ body {
     width: 100%;
     margin: 0;
     font-family: sans-serif;
+    background-color: #F0F0F0;
 }
 
 .navbar {
@@ -30,16 +43,18 @@ body {
 	padding-top: 0px;
 }
 table, td {
-	background-color: lightgrey;
-	border: 1px solid grey;
+	/*background-color: lightgrey;*/
+	background-color: white;
+	border: 1px solid #e4e4e4;
 }
 
 table {
-    width: 100%
+    width: 100%;
+    border-collapse: collapse;
 }
 
 h4 {
-	background-color: #519687;
+    background: linear-gradient(#293A47, #519687);
 	padding: 17px;
     margin: 0;
     color: white;
@@ -47,38 +62,40 @@ h4 {
 
 .content {
 	padding: 20px;
+	background-color: #F0F0F0;;
 }
 
 form {
-	padding: 20px;
+	/*padding: 20px;*/
 }
 
-form > .container {
+form > .activity > .container {
 	padding: 10px;
 	border: 0.01em solid grey;
 }
 
-.projected-date {
-	color: #519687;
+.sub-header {
+	color: white;
+	background-color: grey;
 	padding-left: 20px;
 	font-weight: bold;
 	margin-bottom: 0;
 }
 
-form > .container > input[type="text"],input[type="date"] {
-	background-color: lightgrey;
+form > .activity > .container > input[type="text"],input[type="date"] {
+	/*background-color: lightgrey;*/
     /* background-color: white; */
     height: 30px;
     font-family: sans-serif;
 }
 
-form > .container > input[type="text"] {
+form > .activity > .container > input[type="text"] {
 	width: 75%;
 }
-form > .container > input[type="date"] {
+form > .activity > .container > input[type="date"] {
 	width: 20%;
 }
-form > .container > input[type="submit"] {
+form > .activity > .container > input[type="submit"] {
 	background: #293a46;
 	color: white;
 	border-style: outset;
@@ -90,8 +107,26 @@ form > .container > input[type="submit"] {
 	margin-top: 10px;
 	transition: all .35s;
 }
-form > .container > input[type="submit"]:hover {
+form > .activity > .container > input[type="submit"]:hover {
 	background: #172a38;
 	border-color: #172a38;
 	color: white;
 }
+
+.activity {
+	border: 1px solid lightgrey;
+	margin: 0;/*
+	height:50px;
+	line-height: 50px;*/
+}
+.activity > p {
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    margin: 0;
+    height: 39px;
+    line-height: 39px;
+}
+
+/*body  > * {
+  border: 1px dashed red;
+}*/

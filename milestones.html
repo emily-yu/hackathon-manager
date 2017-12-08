@@ -42,9 +42,9 @@
 		<h4>MILESTONES</h4>
 	</div>
 
-	<p class = "projected-date">CURRENT PROJECTED DATE: 01-19-2018 </p>
+	<!-- <p class = "projected-date">CURRENT PROJECTED DATE: 01-19-2018 </p> -->
 
-	<form action = "https://pacific-escarpment-47591.herokuapp.com/goals">
+<!-- 	<form action = "https://pacific-escarpment-47591.herokuapp.com/goals">
 		<h4>ADD NEW</h4>
 		<div class = "container">
 			<input type = "date" name = "date">
@@ -52,7 +52,7 @@
 			<br>
 			<input type = "submit">
 		</div>
-	</form>
+	</form> -->
 
 <!-- 	<div class = "content">
 
@@ -98,14 +98,44 @@
 			</tr>
 		</table>
 	</div> -->
-	<div class = "content">
+
+<!-- 	<div class = "content">
 		<h4>ALL MILESTONES</h4>
 		<table id="1">
 			<tr>
 				<th>Hardware</th>
 				<th>Loanee</th>
+				<th>Status</th>
 			</tr>
 		</table>
+	</div>
+ -->
+	<div class = "content">
+		<p class = "projected-date">CURRENT PROJECTED DATE: 01-19-2018 </p>
+		<form action = "https://pacific-escarpment-47591.herokuapp.com/goals">
+			<div class = "activity">
+				<p class = "projected-date sub-header">ADD NEW</p>
+				<div class = "container">
+					<input type = "date" name = "date">
+					<input type = "text" name = "milestone">
+					<br>
+					<input type = "submit">
+				</div>
+			</div>
+		</form>
+
+		<br>
+
+		<div class = "activity">
+			<p class = "projected-date sub-header">ALL MILESTONES</p>
+			<table id="1">
+				<tr>
+					<th>Hardware</th>
+					<th>Loanee</th>
+					<th>Status</th>
+				</tr>
+			</table>
+		</div>
 	</div>
 </section>
 
