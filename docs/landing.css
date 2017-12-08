@@ -294,3 +294,26 @@ img::-moz-selection {
 .answer {
     font-size:12px;
 }
+
+pre {
+    text-align: left; 
+    margin-left: 10%; 
+    margin-right: 10%;
+    background-color: #a31515; 
+    color: white;
+    margin-top: 20px;
+}
+
+hr{
+    border-color:#a31515;
+    border-width:2px;
+    max-width:200px
+}
+
+.codeblock-span {
+    font-family: Courier; 
+    font-size: 14px; 
+    background-color: #a31515; 
+    padding: 5px; 
+    border-radius: 5px
+}

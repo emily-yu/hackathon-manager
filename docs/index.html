@@ -34,6 +34,7 @@
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
                 <ul class="nav navbar-nav">
                     <li><a class="page-scroll" href="#about">About</a></li>
+                    <li><a class="page-scroll" href="#installation">Install</a></li>
                 </ul>
             </div>
         </div>
@@ -69,15 +70,50 @@
         </div>
     </section>
 
-    <a href="https://heroku.com/deploy">
-  <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
-</a>
+    <!-- thicc/about section -->
+    <section id="installation" class="container download-section text-center">
+        <div class="row">
+            <h3 style = "padding-bottom: 20px">Installation</h3>
 
+            <div class="col-lg-8 col-lg-offset-2" style = "font-family:'Raleway'">
+                <p style = "font-size: 16px;"">Clone the repository and run following script to generate the application.</p>
+                <pre>
+                    <code>
+                    git clone https://github.com/emily-yu/hackathon-manager.git
+                    cd init
+                    sh generate.sh
+                    </code>
+                </pre>
+
+                <hr>
+
+                <p style = "font-size: 16px; padding-bottom: 10px;">Make sure you have a Heroku account and deploy your own app using the following button <br> or run <span class = "codeblock-span">heroku.sh</span> script in the init folder by typing <span class = "codeblock-span">sh heroku.sh.</span></p>
+                <a href="https://heroku.com/deploy">
+                    <img src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
+                </a>
+
+                <hr>
+
+                <p style = "font-size: 16px; padding-bottom: 10px; display: inline; white-space: nowrap;">Open <span class = "codeblock-span">global.js</span> and replace the variable <span class = "codeblock-span">ngrok</span> with your Heroku app name, <br> which can be found when you run the generate script.</p>
+                <pre>
+                    <code>
+                    var ngrok = 'YOUR-HEROKU-APP-URL'
+                    </code>
+                </pre>
+
+                <hr>
+
+                <p style = "font-size: 16px; padding-bottom: 10px; display: inline; white-space: nowrap;">Open <span class = "codeblock-span">index.html</span> to view your application.</p>
+
+            </div>
+
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer>
         <div class="container text-center">
-            <p class="" style = "font-family: 'Raleway'; font-size:14px">Copyright 2017 &copy; Hackathon Manager</p>
+            <p class="" style = "font-family: 'Raleway'; font-size:14px">Copyright 2017 &copy; Procurator</p>
         </div>
     </footer>
 
