@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>index</title>
+	<title>Hardware</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<!-- <body onload = "createTable()"> -->
-<body onload = "same()">
+<body onload = "output2()">
 
 <section class = "navbar">
 	<p class = "navbar-header">PROCURATOR</p>
 	<hr>
 	<div class = "navbar-content">
-		<div class = "selected">
+		<div>
 			<a href = "index.html">
-			<div class="arrow-left"></div>
 			<p class = "navbar-text">Home</p>
 			</a>
 		</div>
@@ -32,8 +30,9 @@
 			<p class = "navbar-text">Milestones</p>
 			</a>
 		</div>
-		<div>
+		<div class = "selected">
 			<a href = "sponsors.html">
+			<div class="arrow-left"></div>
 			<p class = "navbar-text">Sponsors</p>
 			</a>
 		</div>
@@ -47,13 +46,43 @@
 
 <section class = "main">
 	<div class = "header">
-		<h4>HOME</h4>
+		<h4>HARDWARE</h4>
 	</div>
 	<div class = "content">
-		<table id="1"></table>
+		<div class = "activity">
+			<p class = "projected-date sub-header">ACTIVITY LOG</p>
+			<table id="1">
+				<tr>
+					<th>Name</th>
+					<th>Contact</th>
+					<th>Company</th>
+					<th>Benefit</th>
+					<th>Invoices</th>
+				</tr>
+			</table>
+		</div>
 	</div>
 </section>
 
 </body>
+
+<script src = "global.js"></script>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+function output2() {
+	var myUrl = getNgrok() + 'output3';
+	var proxy = 'https://cors-anywhere.herokuapp.com/';
+
+	$.ajax({
+	    url: proxy + myUrl,
+	    complete: function(data) {
+	        console.log(data.responseText);
+	        same(5, data.responseText);
+	    }
+	});
+
+}
+</script>
 <script src = "script.js"></script>
+
 </html>
