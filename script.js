@@ -128,7 +128,64 @@ function same(n, csv) {
             console.log(temp[i])
         }
     }
+    else if (n == 5) {
+        for (i = 0; i < fullArray.length; i+=1) { 
+            // console.log(temp[i])
+            console.log("ASdfsaf")
+            if (temp[i] == '"upload receipt"') {
+                console.log(temp[i])
+                temp[i].innerHTML = "asdfjaksdlf"
+            }
+        }
+    }
 
     console.log(fullArray)
     createNTable(fullArray)
+    replaceScript()
+}
+
+function replaceScript() {
+    let x = document.getElementsByTagName("td");
+    for (var i=0; i<x.length; i++) {
+        if ((i+1) % 5 == 0 && x[i].textContent == '"upload receipt"') {
+            x[i].innerHTML = '<input type="file" id="myFile" multiple size="50" onchange="uploadFile()">'
+        }
+    }
+}
+function uploadFile(){
+    let x = document.getElementById("myFile");
+    let txt = "";
+    if ('files' in x) {
+        if (x.files.length == 0) {
+            txt = "Select one or more files.";
+        } else {
+            for (var i = 0; i < x.files.length; i++) {
+                txt += "<br><strong>" + (i+1) + ". file</strong><br>";
+                var file = x.files[i];
+                if ('name' in file) {
+                    txt += "name: " + file.name + "<br>";
+                }
+                if ('size' in file) {
+                    txt += "<br>size: " + file.size + " bytes <br>";
+                }
+            }
+        }
+    } 
+    else {
+        if (x.value == "") {
+            txt += "Select one or more files.";
+        } else {
+            txt += "The files property is not supported by your browser!";
+            txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
+                $.ajax({
+                    method: 'POST',
+                    address: 'url/to/save/image',
+                    data: frm,
+                    contentType: false,
+                    processData: false,
+                    cache: false
+                });
+        }
+    }
+    document.getElementById("demo").innerHTML = txt;
 }
