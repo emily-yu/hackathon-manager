@@ -38,9 +38,9 @@ def hello():
 
 @app.route("/users")
 def newSheet():
-	name = request.args.get("name").replace(" ", "%")
-	email = request.args.get("email").replace(" ", "%")
-	school = request.args.get("school").replace(" ", "%")
+	name = request.args.get("name")
+	email = request.args.get("email")
+	school = request.args.get("school")
 	row = [name, email, school]
 	with open(os.getcwd() + '/application/data.csv', "a") as f:
 		writer = csv.writer(f)
@@ -50,9 +50,9 @@ def newSheet():
 
 @app.route("/hardware")
 def newSheet2():
-	deviceName = request.args.get("deviceName").replace(" ", "%")
-	loanee = request.args.get("loanee").replace(" ", "%")
-	cost = request.args.get("cost").replace(" ", "%")
+	deviceName = request.args.get("deviceName")
+	loanee = request.args.get("loanee")
+	cost = request.args.get("cost")
 	row = [deviceName, loanee, cost]
 	with open(os.getcwd() + '/application/hardware.csv', "a") as f:
 		writer = csv.writer(f)
@@ -62,10 +62,10 @@ def newSheet2():
 
 @app.route("/sponsors")
 def newSheet3():
-	companyName = request.args.get("companyName").replace(" ", "%")
-	status = request.args.get("status").replace(" ", "%")
-	proposal = request.args.get("proposal").replace(" ", "%")
-	notes  = request.args.get("notes").replace(" ", "%")
+	companyName = request.args.get("companyName")
+	status = request.args.get("status")
+	proposal = request.args.get("proposal")
+	notes  = request.args.get("notes")
 	row = [companyName, status, proposal, notes]
 	with open(os.getcwd() + '/application/sponsors.csv', "a") as f:
 		writer = csv.writer(f)
@@ -77,16 +77,16 @@ def newSheet3():
 def newSheet4():
 	judgeName = request.args.get("judgeName")
 	projectName = request.args.get("projectName")
-	c1Grade = request.args.get("c1Grade").replace(" ", "%")
-	c1Notes = request.args.get("c1Notes").replace(" ", "%")
-	c2Grade = request.args.get("c2Grade").replace(" ", "%")
-	c2Notes = request.args.get("c2Notes").replace(" ", "%")
-	c3Grade = request.args.get("c3Grade").replace(" ", "%")
-	c3Notes = request.args.get("c3Notes").replace(" ", "%")
-	c4Grade = request.args.get("c4Grade").replace(" ", "%")
-	c4Notes = request.args.get("c4Notes").replace(" ", "%")
-	c5Grade = request.args.get("c5Grade").replace(" ", "%")
-	c5Notes = request.args.get("c5Notes").replace(" ", "%")
+	c1Grade = request.args.get("c1Grade")
+	c1Notes = request.args.get("c1Notes")
+	c2Grade = request.args.get("c2Grade")
+	c2Notes = request.args.get("c2Notes")
+	c3Grade = request.args.get("c3Grade")
+	c3Notes = request.args.get("c3Notes")
+	c4Grade = request.args.get("c4Grade")
+	c4Notes = request.args.get("c4Notes")
+	c5Grade = request.args.get("c5Grade")
+	c5Notes = request.args.get("c5Notes")
 	row = [judgeName, projectName, c1Grade, c1Notes, c2Grade, c2Notes, c3Grade, c3Notes, c4Grade, c4Notes, c5Grade, c5Notes]
 	with open(os.getcwd() + '/application/judges.csv', "a") as f:
 		writer = csv.writer(f)
@@ -96,8 +96,8 @@ def newSheet4():
 
 @app.route("/goals")
 def newSheet5():
-	goals = request.args.get("date").replace(" ", "%")
-	emailList = request.args.get("milestone").replace(" ", "%")
+	goals = request.args.get("date")
+	emailList = request.args.get("milestone")
 	row = [goals, emailList]
 	with open(os.getcwd() + '/application/goals.csv', "a") as f:
 		writer = csv.writer(f)

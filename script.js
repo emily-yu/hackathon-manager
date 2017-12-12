@@ -71,15 +71,41 @@ function createNTable(array) {
     document.getElementById("1").innerHTML += content;
 }
 
+function clean(obj) {
+  for (var propName in obj) { 
+    if (obj[propName] === null || obj[propName] === undefined) {
+      delete obj[propName];
+    }
+  }
+}
+function deleteByValue(val, fruits) {
+    for(var f in fruits) {
+        if(fruits[f] == val) {
+            delete fruits[f];
+        }
+    }
+}
+
 function same(n, csv) {
     var temp = new Array();
+    console.log("START")
     temp = csv.split('\n');
+    console.log(temp)
     temp = temp.toString().split(',');
-    temp = temp.toString().split(/[ ,]+/);
+    console.log(temp)
+    // temp = temp.toString().split(/[ ,]+/);
+    console.log(temp)
+    // temp = list(filter(lambda x: x!= ('""'), temp))
+    console.log(temp)
+    deleteByValue('""', temp)
+    console.log(temp)
     for (i = 0; i < temp.length; i += 1) { 
-        temp[i] = temp[i].replace(/\W/g, '')
-        if (temp[i] == "") {
-            temp.splice(i, 1);
+        // temp[i] = temp[i].replace("***", " ")
+        // console.log(temp[i])
+        // temp[i] = temp[i].replace(/\W/g, '')
+        console.log(temp[i])
+        if (temp[i] == undefined) {
+            temp.splice(i, 2);
         }
     }
     var fullArray = []
