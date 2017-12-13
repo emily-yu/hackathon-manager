@@ -30,20 +30,6 @@ function loadData() {
 	return array;
 }
 
-function createTable() {
-    var array = [["god bless",2,3,4],[4,5,6,4],[7,8,9,4]];
-    // var array = loadData();
-    var content = "";
-    array.forEach(function(row) {
-        content += "<tr>";
-        row.forEach(function(cell) {
-            content += "<td>" + cell + "</td>" ;
-        });
-        content += "</tr>";
-    });
-    document.getElementById("1").innerHTML = content;
-}
-
 function createTable2() {
     var array = [["god bless",2,3,4],[4,5,6,4],[7,8,9,4]];
     // var array = loadData();
@@ -148,44 +134,13 @@ function replaceScript() {
     let x = document.getElementsByTagName("td");
     for (var i=0; i<x.length; i++) {
         if ((i+1) % 5 == 0 && x[i].textContent == '"upload receipt"') {
+            console.log(Math.ceil(i/5)) // row number
             x[i].innerHTML = '  <form action = "http://4d58903f.ngrok.io/uploader" method = "POST"\
                                 enctype = "multipart/form-data">\
                                     <input type = "file" name = "file" />\
+                                    <input type = "text" name = "row" value = ' + Math.ceil(i/5) + ' style = "display: none">\
                                     <input type = "submit"/>\
                                 </form>'
         }
     }
-}
-
-// unused
-function uploadFile(){
-    let x = document.getElementById("myFile");
-    let txt = "";
-    if ('files' in x) {
-        if (x.files.length == 0) {
-            txt = "Select one or more files.";
-        }
-        else {
-            for (var i = 0; i < x.files.length; i++) {
-                txt += "<br><strong>" + (i+1) + ". file</strong><br>";
-                var file = x.files[i];
-                if ('name' in file) {
-                    txt += "name: " + file.name + "<br>";
-                }
-                if ('size' in file) {
-                    txt += "<br>size: " + file.size + " bytes <br>";
-                }
-            }
-        }
-        console.log(x.value)
-    } 
-    else {
-        if (x.value == "") {
-            txt += "Select one or more files.";
-        } else {
-            txt += "The files property is not supported by your browser!";
-            txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
-        }
-    }
-    document.getElementById("demo").innerHTML = txt;
 }

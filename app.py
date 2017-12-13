@@ -7,7 +7,7 @@ import json
 import base64
 import csv
 import codecs
-import os
+import os, errno
 from werkzeug import secure_filename
 
 app = Flask(__name__)
@@ -139,12 +139,18 @@ def output5():
 	
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
-   if request.method == 'POST':
-      f = request.files['file']
-      print(os.getcwd())
-      f.save(os.path.join(os.getcwd() + '/application/invoices/', secure_filename(f.filename)))
-      print('file uploaded successfully')
-      return "file uploaded"
+	if request.method == 'POST':
+		f = request.files['file']
+		directory = os.getcwd() + '/application/invoices/' + request.values['row'] + '/'
+
+		if (os.path.exists(directory)):
+			print("exists")
+		else:
+			os.makedirs(directory)
+
+		f.save(os.path.join(directory, secure_filename(f.filename)))
+
+		return "file uploaded"
 
 @app.route("/sendEmail")
 def send_simple_message():
