@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 import urllib.request
 import requests
 import string
@@ -8,6 +8,7 @@ import base64
 import csv
 import codecs
 import os
+from werkzeug import secure_filename
 
 app = Flask(__name__)
 
@@ -135,6 +136,15 @@ def output5():
 	with open(os.getcwd() + '/application/goals.csv') as f:
 		s5 = f.read() + '\n' # add trailing new line character
 	return(s5)
+	
+@app.route('/uploader', methods = ['GET', 'POST'])
+def upload_file():
+   if request.method == 'POST':
+      f = request.files['file']
+      print(os.getcwd())
+      f.save(os.path.join(os.getcwd() + '/application/invoices/', secure_filename(f.filename)))
+      print('file uploaded successfully')
+      return "file uploaded"
 
 @app.route("/sendEmail")
 def send_simple_message():

@@ -148,17 +148,24 @@ function replaceScript() {
     let x = document.getElementsByTagName("td");
     for (var i=0; i<x.length; i++) {
         if ((i+1) % 5 == 0 && x[i].textContent == '"upload receipt"') {
-            x[i].innerHTML = '<input type="file" id="myFile" multiple size="50" onchange="uploadFile()">'
+            x[i].innerHTML = '  <form action = "http://4d58903f.ngrok.io/uploader" method = "POST"\
+                                enctype = "multipart/form-data">\
+                                    <input type = "file" name = "file" />\
+                                    <input type = "submit"/>\
+                                </form>'
         }
     }
 }
+
+// unused
 function uploadFile(){
     let x = document.getElementById("myFile");
     let txt = "";
     if ('files' in x) {
         if (x.files.length == 0) {
             txt = "Select one or more files.";
-        } else {
+        }
+        else {
             for (var i = 0; i < x.files.length; i++) {
                 txt += "<br><strong>" + (i+1) + ". file</strong><br>";
                 var file = x.files[i];
@@ -170,6 +177,7 @@ function uploadFile(){
                 }
             }
         }
+        console.log(x.value)
     } 
     else {
         if (x.value == "") {
@@ -177,14 +185,6 @@ function uploadFile(){
         } else {
             txt += "The files property is not supported by your browser!";
             txt  += "<br>The path of the selected file: " + x.value; // If the browser does not support the files property, it will return the path of the selected file instead. 
-                $.ajax({
-                    method: 'POST',
-                    address: 'url/to/save/image',
-                    data: frm,
-                    contentType: false,
-                    processData: false,
-                    cache: false
-                });
         }
     }
     document.getElementById("demo").innerHTML = txt;
