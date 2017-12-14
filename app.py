@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, send_file
 import urllib.request
 import requests
 import string
@@ -140,9 +140,10 @@ def output5():
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
 	if request.method == 'POST':
+		new_rows = []
 		f = request.files['file']
-		directory = os.getcwd() + '/application/invoices/' + request.values['row'] + '/'
-
+		directory = os.getcwd() + '/application/invoices/' + request.values['row']+ '/'
+		print(directory)
 		if (os.path.exists(directory)):
 			print("exists")
 		else:
@@ -150,7 +151,38 @@ def upload_file():
 
 		f.save(os.path.join(directory, secure_filename(f.filename)))
 
+		with open(os.getcwd() + '/application/sponsors.csv') as f:
+			reader = csv.reader(f)
+			# print(reader)
+			for row in reader:
+				new_rows.append(row)
+				# print(row)
+
+		print(new_rows[int(request.values['row'])][4])
+		new_rows[int(request.values['row'])][4] = 'loading...'
+		print(new_rows[int(request.values['row'])][4])
+		with open(os.getcwd() + '/application/sponsors.csv', 'w') as f:
+			writer = csv.writer(f)
+			writer.writerows(new_rows)
+
 		return "file uploaded"
+
+@app.route('/get_files')
+def get_files():
+	folder = request.args.get('folder')
+	directory = os.getcwd() + '/application/invoices/' + folder
+	print(directory)
+	img_files = ''
+	for file in os.listdir(directory):
+		print(file)
+		if file.lower().endswith(('.png', '.jpg', '.jpeg', '.gif')):
+			print("YES")
+			img_files += ',' + file
+		else:
+			print("NO")
+
+	print(os.listdir(directory))
+	return img_files
 
 @app.route("/sendEmail")
 def send_simple_message():
@@ -162,11 +194,8 @@ def send_simple_message():
 		"https://api.mailgun.net/v3/sandboxc5380f848a684d4aa86069c1308d4884.mailgun.org/messages",
 		auth=("api", "key-ef2d27e2ebe2754a5335866944846055"),
 		data={"from": "PalyHacks <info@palyhacks.io>",
-		# "to": "HM <eyudeveloper@gmail.com>",
 		"to" : name + " <" + email + ">",
-		# "subject": "Hello HM",
 		"subject" : subject,
-		# "text": "Congratulations HM, you just sent an email with Mailgun!  You are truly awesome!"
 		"text" : textLine,
 		})
 

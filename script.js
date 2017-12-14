@@ -1,18 +1,3 @@
-// var request = new XMLHttpRequest();
-// var cors = require('cors')
-
-// request.onreadystatechange = function() {
-//     if (request.readyState === 4) {
-//         if (request.status === 200) {
-//             document.body.className = 'ok';
-//             console.log(request.responseText);
-//         } else {
-//             document.body.className = 'error';
-//         }
-//     }
-// };
-
-
 var csv = "city,state,population,land area, seattle,WA,652405,83.9, new york,NY,8405837,302.6, boston,MA,645966,48.3, kansas city,MO,467007,315.0"
 
 function loadData() {
@@ -73,6 +58,7 @@ function deleteByValue(val, fruits) {
 }
 
 function same(n, csv) {
+
     var temp = new Array();
     console.log("START")
     temp = csv.split('\n');
@@ -133,14 +119,47 @@ function same(n, csv) {
 function replaceScript() {
     let x = document.getElementsByTagName("td");
     for (var i=0; i<x.length; i++) {
-        if ((i+1) % 5 == 0 && x[i].textContent == '"upload receipt"') {
-            console.log(Math.ceil(i/5)) // row number
-            x[i].innerHTML = '  <form action = "http://4d58903f.ngrok.io/uploader" method = "POST"\
+        const initial_text = x[i].textContent
+        const row_number = Math.ceil(i/5)
+
+        if ((i+1) % 5 == 0 && x[i].textContent == '"upload receipt"') { // add upload button on every 5th cell
+            x[i].innerHTML = '  <form action = "' + getNgrok() + 'uploader" method = "POST"\
                                 enctype = "multipart/form-data">\
                                     <input type = "file" name = "file" />\
-                                    <input type = "text" name = "row" value = ' + Math.ceil(i/5) + ' style = "display: none">\
+                                    <input type = "text" name = "row" value = ' + row_number + ' style = "display: none">\
                                     <input type = "submit"/>\
                                 </form>'
         }
+        if (initial_text != '"upload receipt"' && (i+1) % 5 == 0) { // add invoices
+            get_image_names(row_number, i)
+        }
     }
+}
+
+function setImage(fileNames, elemNumber) {
+    console.log("WEMADEIT")
+    console.log(fileNames)
+    let x = document.getElementsByTagName("td");
+    const row_number = Math.ceil(elemNumber/5)
+    x[elemNumber].innerHTML = '<form action = "' + getNgrok() + 'uploader" method = "POST"\
+                        enctype = "multipart/form-data">\
+                            <input type = "file" name = "file" />\
+                            <input type = "text" name = "row" value = ' + row_number + ' style = "display: none">\
+                            <input type = "submit"/>\
+                        </form>'
+    for (const file of fileNames) {
+        x[elemNumber].innerHTML += '<img src = "application/invoices/' + row_number + '/' + file + '" height = 50><br>'
+    }
+}
+
+function get_image_names(folder, elemNumber) {
+    var myUrl = getNgrok() + 'get_files?folder=' + folder;
+    var proxy = 'https://cors-anywhere.herokuapp.com/';
+
+    $.ajax({
+        url: proxy + myUrl,
+        complete: function(data) {
+            setImage(data.responseText.split(/[ ,]+/).filter(Boolean), elemNumber)
+        }
+    });
 }

@@ -48,6 +48,8 @@
 	<div class = "header">
 		<h4>SPONSORS</h4>
 	</div>
+	<input type="submit" value="Go to my link location" 
+    	onclick="loadInvoice()" />
 	<div class = "content">
 		<div class = "activity">
 			<p class = "projected-date sub-header">ACTIVITY LOG</p>
@@ -81,6 +83,15 @@ function output2() {
 	    }
 	});
 
+}
+function loadInvoice() {
+	$.get(
+	    "https://cors-anywhere.herokuapp.com/https://2e5d32f3.ngrok.io/get_files",
+	    // {paramOne : 1, paramX : 'abc'},
+	    function(data) {
+	       console.log('page content: ' + data);
+	    }
+	);
 }
 </script>
 <script src = "script.js"></script>
