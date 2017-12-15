@@ -93,24 +93,9 @@ function same(n, csv) {
             for (var i=0; i<x.length; i++) {
                 const initial_text = x[i].textContent
                 const row_number = Math.ceil(i/5)
-                let color;
                 if ((i+1) % 3 == 0) { // add invoices
-                    switch (initial_text) {
-                        case 'In Progress':
-                            color = 'orange'
-                            break;
-                        case 'N/A':
-                            color = 'red'
-                            break;
-                        case 'Completed':
-                            color = 'green'
-                            break;
-                        default:
-                            color = 'black'
-                            break;
-                    }
                     x[i].innerHTML = '<div class="dropdown">\
-                                        <button class="dropbtn" style = "background-color: ' + color + '">' + initial_text + '</button>\
+                                        <button class="dropbtn" style = "background-color: ' + get_status_color(initial_text) + '">' + initial_text + '</button>\
                                         <div id="myDropdown" class="dropdown-content">\
                                             <a class = "option">Completed</a>\
                                             <a class = "option">In Progress</a>\
@@ -128,12 +113,15 @@ function same(n, csv) {
 
             // dropdown menu functions
             window.onclick = function(event) {
+
                 console.log("CLICKED" + event.target)
                 console.log("CONTENT " + event.target.textContent)
+
                 const testClass = event.target.className;
                 if (testClass == 'option'){
-                    console.log("Same")
-                    event.target.parentNode.parentNode.getElementsByTagName('button')[0].textContent = event.target.textContent
+                    let buttonNode = event.target.parentNode.parentNode.getElementsByTagName('button')[0]
+                    buttonNode.textContent = event.target.textContent
+                    buttonNode.style.backgroundColor = get_status_color(event.target.textContent)
                 }
                 else if (!event.target.matches('.dropbtn')) {
                     var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -153,6 +141,19 @@ function same(n, csv) {
     }
 }
 
+function get_status_color(status) {
+    console.log(status)
+    switch (status) {
+        case 'In Progress':
+            return 'orange'
+        case 'N/A':
+            return 'red'
+        case 'Completed':
+            return 'green'
+        default:
+            return 'black'
+    }
+}
 
 function replaceInvoices() {
     let x = document.getElementsByTagName("td");
