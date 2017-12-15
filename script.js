@@ -112,6 +112,7 @@ function same(n, csv) {
             }
 
             // dropdown menu functions
+            let open_button;
             window.onclick = function(event) {
 
                 console.log("CLICKED" + event.target)
@@ -119,9 +120,14 @@ function same(n, csv) {
 
                 const testClass = event.target.className;
                 if (testClass == 'option'){
-                    let buttonNode = event.target.parentNode.parentNode.getElementsByTagName('button')[0]
-                    buttonNode.textContent = event.target.textContent
+                    let buttonNode = open_button
+                    buttonNode.innerHTML = event.target.textContent
                     buttonNode.style.backgroundColor = get_status_color(event.target.textContent)
+                }
+                else if (event.target.matches('.dropbtn')) {
+                    console.log("BAJSDLFDS")
+                    console.log(event.target)
+                    open_button = event.target
                 }
                 else if (!event.target.matches('.dropbtn')) {
                     var dropdowns = document.getElementsByClassName("dropdown-content");
