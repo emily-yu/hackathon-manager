@@ -58,32 +58,19 @@ function deleteByValue(val, fruits) {
 }
 
 function same(n, csv) {
-
-    var temp = new Array();
-    console.log("START")
+    let temp = new Array();
     temp = csv.split('\n');
-    console.log(temp)
     temp = temp.toString().split(',');
-    console.log(temp)
-    // temp = temp.toString().split(/[ ,]+/);
-    console.log(temp)
-    // temp = list(filter(lambda x: x!= ('""'), temp))
-    console.log(temp)
     deleteByValue('""', temp)
-    console.log(temp)
     for (i = 0; i < temp.length; i += 1) { 
-        // temp[i] = temp[i].replace("***", " ")
-        // console.log(temp[i])
-        // temp[i] = temp[i].replace(/\W/g, '')
         console.log(temp[i])
         if (temp[i] == undefined) {
             temp.splice(i, 2);
         }
     }
-    var fullArray = []
-    var avgArray = []
+    let fullArray = []
+    let avgArray = []
     for(i = 0; i < temp.length; i+=1){ 
-        console.log(i)
         if (avgArray.length == n) {
             fullArray.push(avgArray)
             avgArray = []
@@ -94,29 +81,80 @@ function same(n, csv) {
         }
     }
 
-    // judging
-    if (n == 12) {
-        for (i = 0; i < fullArray.length; i+=1) { 
-            console.log(temp[i])
-        }
-    }
-    else if (n == 5) {
-        for (i = 0; i < fullArray.length; i+=1) { 
-            // console.log(temp[i])
-            console.log("ASdfsaf")
-            if (temp[i] == '"upload receipt"') {
-                console.log(temp[i])
-                temp[i].innerHTML = "asdfjaksdlf"
-            }
-        }
-    }
-
-    console.log(fullArray)
     createNTable(fullArray)
-    replaceScript()
+
+    // generate some page specific elements
+    switch ((location.pathname.substring(location.pathname.lastIndexOf("/") + 1))) {
+        case 'sponsors.html':
+            replaceInvoices()
+            break;
+        case 'milestones.html':
+            let x = document.getElementsByTagName("td");
+            for (var i=0; i<x.length; i++) {
+                const initial_text = x[i].textContent
+                const row_number = Math.ceil(i/5)
+                let color;
+                if ((i+1) % 3 == 0) { // add invoices
+                    switch (initial_text) {
+                        case 'In Progress':
+                            color = 'orange'
+                            break;
+                        case 'N/A':
+                            color = 'red'
+                            break;
+                        case 'Completed':
+                            color = 'green'
+                            break;
+                        default:
+                            color = 'black'
+                            break;
+                    }
+                    x[i].innerHTML = '<div class="dropdown">\
+                                        <button class="dropbtn" style = "background-color: ' + color + '">' + initial_text + '</button>\
+                                        <div id="myDropdown" class="dropdown-content">\
+                                            <a class = "option">Completed</a>\
+                                            <a class = "option">In Progress</a>\
+                                            <a class = "option">N/A</a>\
+                                        </div>\
+                                    </div>'
+                }
+            }
+            let buttons = document.getElementsByClassName('dropbtn')
+            for (let button of buttons) {
+                button.addEventListener('click', function() {
+                    document.getElementById("myDropdown").classList.toggle("show");
+                })
+            }
+
+            // dropdown menu functions
+            window.onclick = function(event) {
+                console.log("CLICKED" + event.target)
+                console.log("CONTENT " + event.target.textContent)
+                const testClass = event.target.className;
+                if (testClass == 'option'){
+                    console.log("Same")
+                    event.target.parentNode.parentNode.getElementsByTagName('button')[0].textContent = event.target.textContent
+                }
+                else if (!event.target.matches('.dropbtn')) {
+                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                    var i;
+                    for (i = 0; i < dropdowns.length; i++) {
+                        var openDropdown = dropdowns[i];
+                        if (openDropdown.classList.contains('show')) {
+                            openDropdown.classList.remove('show');
+                        }
+                    }
+                }
+            }
+
+            break;
+        default:
+            console.log("nah")
+    }
 }
 
-function replaceScript() {
+
+function replaceInvoices() {
     let x = document.getElementsByTagName("td");
     for (var i=0; i<x.length; i++) {
         const initial_text = x[i].textContent
