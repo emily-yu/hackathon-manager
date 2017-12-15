@@ -70,26 +70,9 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 function output2() {
-	var myUrl = getNgrok() + 'output3';
-	var proxy = 'https://cors-anywhere.herokuapp.com/';
-
-	$.ajax({
-	    url: proxy + myUrl,
-	    complete: function(data) {
-	        console.log(data.responseText);
-	        same(5, data.responseText);
-	    }
-	});
-
-}
-function loadInvoice() {
-	$.get(
-	    "https://cors-anywhere.herokuapp.com/https://2e5d32f3.ngrok.io/get_files",
-	    // {paramOne : 1, paramX : 'abc'},
-	    function(data) {
-	       console.log('page content: ' + data);
-	    }
-	);
+	make_server_request('output3', function(data) {
+		same(5, data.responseText);
+	})
 }
 </script>
 <script src = "script.js"></script>

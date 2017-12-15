@@ -103,18 +103,10 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 function output4() {
-	var myUrl = getNgrok() + 'output4';
-	var proxy = 'https://cors-anywhere.herokuapp.com/';
-
-	$.ajax({
-	    url: proxy + myUrl,
-	    complete: function(data){
-	        console.log(data.responseText);
-	        same(12, data.responseText);
-	    }
-	});
+	make_server_request('output4', function(data) {
+		same(12, data.responseText);
+	})
 }
-
 </script>
 
 </html>

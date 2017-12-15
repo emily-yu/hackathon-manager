@@ -1,3 +1,15 @@
+function make_server_request(endpoint, callback) {
+    const myUrl = getNgrok() + endpoint;
+    const proxy = 'https://cors-anywhere.herokuapp.com/';
+
+    $.ajax({
+        url: proxy + myUrl,
+        complete: function(data) {
+            callback(data)
+        }
+    });
+}
+
 function createNTable(array) {
     var content = "";
     array.forEach(function(row) {
@@ -95,17 +107,7 @@ function same(n, csv) {
                     for (let i = 0; i<x.length; i++) {
                         if (open_button.parentNode.parentNode === x[i]) {
                             const row_number = Math.ceil(i/5)
-                            console.log(row_number)
-
-                            const myUrl = getNgrok() + 'change_milestone_status?row=' + row_number + '&status=' + event.target.textContent;
-                            const proxy = 'https://cors-anywhere.herokuapp.com/';
-
-                            $.ajax({
-                                url: proxy + myUrl,
-                                complete: function(data) {
-                                    console.log(data.responseText)
-                                }
-                            });
+                            make_server_request('change_milestone_status?row=' + row_number + '&status=' + event.target.textContent, function() {})
                         }
                     }
                 }
@@ -178,14 +180,7 @@ function setImage(fileNames, elemNumber) {
 }
 
 function get_image_names(folder, elemNumber) {
-    var myUrl = getNgrok() + 'get_files?folder=' + folder;
-    var proxy = 'https://cors-anywhere.herokuapp.com/';
-
-    $.ajax({
-        url: proxy + myUrl,
-        complete: function(data) {
-            console.log(data.responseText.split(/[ ,]+/).filter(Boolean), elemNumber)
-            setImage(data.responseText.split(/[ ,]+/).filter(Boolean), elemNumber)
-        }
-    });
+    make_server_request('get_files?folder=' + folder, function(data) {
+        setImage(data.responseText.split(/[ ,]+/).filter(Boolean), elemNumber)
+    })
 }

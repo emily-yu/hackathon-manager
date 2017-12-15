@@ -71,7 +71,6 @@ def newSheet3():
 	with open(os.getcwd() + '/application/sponsors.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([companyName, " "]), ''.join([status, " "]), ''.join([proposal, " "]), ''.join([notes, " ,,"])])
-		#array3.append(''.join([companyName, " "]) + ''.join([status, " "]) + ''.join([proposal, " "]) + ''.join([notes, " "]))
 	return "Sponsors"
 
 @app.route("/judges")
@@ -92,7 +91,6 @@ def newSheet4():
 	with open(os.getcwd() + '/application/judges.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([judgeName, " "]), ''.join([projectName, " "]), ''.join([c1Grade, " "]), ''.join([c1Notes, " "]), ''.join([c2Grade, " "]), ''.join([c2Notes, " "]), ''.join([c3Grade, " "]), ''.join([c3Notes, " "]), ''.join([c4Grade, " "]), ''.join([c4Notes, " "]), ''.join([c5Grade, " "]), ''.join([c5Notes, " ,,"])])
-		#array4.append(''.join([judgeName, " "]) + ''.join([projectName, " "]) + ''.join([c1Grade, " "]) + ''.join([c1Notes, " "]) + ''.join([c2Grade, " "]) + ''.join([c2Notes, " "]) + ''.join([c3Grade, " "]) + ''.join([c3Notes, " "]) + ''.join([c4Grade, " "]) + ''.join([c4Notes, " "]) + ''.join([c5Grade, " "]) + ''.join([c5Notes, " "]))
 	return "judges"
 
 @app.route("/goals")
@@ -103,38 +101,37 @@ def newSheet5():
 	with open(os.getcwd() + '/application/goals.csv', "a") as f:
 		writer = csv.writer(f)
 		writer.writerow([''.join([goals, " "]), ''.join([emailList, " "]), ''.join(["N/A ,,"])])
-		#array5.append([''.join([goals, " "]), ''.join([emailList, " "])])
 	return "goals"
 
 @app.route("/output1")
 def output1():
 	with open(os.getcwd() + '/application/data.csv') as f:
-		s1 = f.read() + '\n' # add trailing new line character
+		s1 = f.read() + '\n'
 	return(s1)
 
 @app.route("/output2")
 def output2():
 	# asdf
 	with open(os.getcwd() + '/application/hardware.csv') as f:
-		s2 = f.read() + '\n' # add trailing new line character
+		s2 = f.read() + '\n'
 	return(s2)
 
 @app.route("/output3")	
 def output3():
 	with open(os.getcwd() + '/application/sponsors.csv') as f:
-		s3 = f.read() + '\n' # add trailing new line character
+		s3 = f.read() + '\n'
 	return(s3)
 
 @app.route("/output4")
 def output4():
 	with open(os.getcwd() + '/application/judges.csv') as f:
-		s4 = f.read() + '\n' # add trailing new line character
+		s4 = f.read() + '\n'
 	return(s4)
 
 @app.route("/output5")
 def output5():
 	with open(os.getcwd() + '/application/goals.csv') as f:
-		s5 = f.read() + '\n' # add trailing new line character
+		s5 = f.read() + '\n'
 	return(s5)
 	
 @app.route('/uploader', methods = ['GET', 'POST'])
@@ -153,10 +150,8 @@ def upload_file():
 
 		with open(os.getcwd() + '/application/sponsors.csv') as f:
 			reader = csv.reader(f)
-			# print(reader)
 			for row in reader:
 				new_rows.append(row)
-				# print(row)
 
 		print(new_rows[int(request.values['row'])][4])
 		new_rows[int(request.values['row'])][4] = 'loading...'
@@ -192,10 +187,8 @@ def change_milestone_status():
 
 	with open(os.getcwd() + '/application/goals.csv') as f:
 		reader = csv.reader(f)
-		# print(reader)
 		for row in reader:
 			new_rows.append(row)
-			# print(row)
 
 	print(new_rows[int(request.values['row'])][2])
 	new_rows[int(request.values['row'])][2] = status
