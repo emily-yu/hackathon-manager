@@ -122,23 +122,13 @@ function replaceScript() {
         const initial_text = x[i].textContent
         const row_number = Math.ceil(i/5)
 
-        if ((i+1) % 5 == 0 && x[i].textContent == '"upload receipt"') { // add upload button on every 5th cell
-            x[i].innerHTML = '  <form action = "' + getNgrok() + 'uploader" method = "POST"\
-                                enctype = "multipart/form-data">\
-                                    <input type = "file" name = "file" />\
-                                    <input type = "text" name = "row" value = ' + row_number + ' style = "display: none">\
-                                    <input type = "submit"/>\
-                                </form>'
-        }
-        if (initial_text != '"upload receipt"' && (i+1) % 5 == 0) { // add invoices
+        if ((i+1) % 5 == 0) { // add invoices
             get_image_names(row_number, i)
         }
     }
 }
 
 function setImage(fileNames, elemNumber) {
-    console.log("WEMADEIT")
-    console.log(fileNames)
     let x = document.getElementsByTagName("td");
     const row_number = Math.ceil(elemNumber/5)
     x[elemNumber].innerHTML = '<form action = "' + getNgrok() + 'uploader" method = "POST"\
@@ -147,9 +137,14 @@ function setImage(fileNames, elemNumber) {
                             <input type = "text" name = "row" value = ' + row_number + ' style = "display: none">\
                             <input type = "submit"/>\
                         </form>'
-    for (const file of fileNames) {
-        x[elemNumber].innerHTML += '<img src = "application/invoices/' + row_number + '/' + file + '" height = 50><br>'
+
+    // check if there was bad response from server
+    if (fileNames[0] !== "<!DOCTYPE") {
+        for (const file of fileNames) {
+            x[elemNumber].innerHTML += '<img src = "application/invoices/' + row_number + '/' + file + '" height = 50><br>'
+        }
     }
+
 }
 
 function get_image_names(folder, elemNumber) {
@@ -159,6 +154,7 @@ function get_image_names(folder, elemNumber) {
     $.ajax({
         url: proxy + myUrl,
         complete: function(data) {
+            console.log(data.responseText.split(/[ ,]+/).filter(Boolean), elemNumber)
             setImage(data.responseText.split(/[ ,]+/).filter(Boolean), elemNumber)
         }
     });
