@@ -184,6 +184,28 @@ def get_files():
 	print(os.listdir(directory))
 	return img_files
 
+@app.route('/change_milestone_status')
+def change_milestone_status():
+	new_rows = []
+	row = request.args.get('row')
+	status = request.args.get('status')
+
+	with open(os.getcwd() + '/application/goals.csv') as f:
+		reader = csv.reader(f)
+		# print(reader)
+		for row in reader:
+			new_rows.append(row)
+			# print(row)
+
+	print(new_rows[int(request.values['row'])][2])
+	new_rows[int(request.values['row'])][2] = status
+	print(new_rows[int(request.values['row'])][2])
+	with open(os.getcwd() + '/application/goals.csv', 'w') as f:
+		writer = csv.writer(f)
+		writer.writerows(new_rows)
+
+	return "changed"
+
 @app.route("/sendEmail")
 def send_simple_message():
 	name = request.args.get("name")
