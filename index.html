@@ -4,8 +4,7 @@
 	<title>index</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<!-- <body onload = "createTable()"> -->
-<body onload = "same()">
+<body onload = "logistics()">
 
 <section class = "navbar">
 	<p class = "navbar-header">PROCURATOR</p>
@@ -50,10 +49,27 @@
 		<h4>HOME</h4>
 	</div>
 	<div class = "content">
-		<table id="1"></table>
+		<div class = "activity">
+			<p class = "projected-date sub-header">LOGISTICS</p>
+			<table id="1">
+				<tr>
+					<th>Item</th>
+					<th>Description</th>
+				</tr>
+			</table>
+		</div>
 	</div>
 </section>
 
 </body>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script src = "global.js"></script>
 <script src = "script.js"></script>
+<script type="text/javascript">
+function logistics() {
+	make_server_request('output6', function(data) {
+		same(2, data.responseText);
+	})
+}
+</script>
 </html>

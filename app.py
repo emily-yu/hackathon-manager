@@ -133,6 +133,12 @@ def output5():
 	with open(os.getcwd() + '/application/goals.csv') as f:
 		s5 = f.read() + '\n'
 	return(s5)
+
+@app.route("/output6")
+def output6():
+	with open(os.getcwd() + '/application/logistics.csv') as f:
+		s5 = f.read() + '\n'
+	return(s5)
 	
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
