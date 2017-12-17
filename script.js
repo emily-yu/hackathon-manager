@@ -130,6 +130,28 @@ function same(n, csv, id) {
 
             break;
         case 'judging.html':
+            const judgingButton = document.getElementById('judging-link')
+            judgingButton.textContent = getNgrok() + 'judge_form'
+            judgingButton.addEventListener('click', function() {
+                window.open(getNgrok() + 'judge_form')
+            })
+            break;
+        case 'index.html':
+            const homeJudgingButton = document.getElementById('judging-link')
+            homeJudgingButton.textContent = getNgrok() + 'judge_form'
+            homeJudgingButton.addEventListener('click', function() {
+                window.open(getNgrok() + 'judge_form')
+            })
+            const homeHardwareButton = document.getElementById('hardware-link')
+            homeHardwareButton.textContent = getNgrok() + 'hardware_form'
+            homeHardwareButton.addEventListener('click', function() {
+                window.open(getNgrok() + 'hardware_form')
+            })
+            const homeRegistrationButton = document.getElementById('registration-link')
+            homeRegistrationButton.textContent = getNgrok() + 'user_form'
+            homeRegistrationButton.addEventListener('click', function() {
+                window.open(getNgrok() + 'user_form')
+            })
             break;
         default:
             console.log("nah")
