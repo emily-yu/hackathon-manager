@@ -4,7 +4,7 @@
 	<title>Users</title>
 	<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
-<body onload = "output1()">
+<body onload = "generateTableData()">
 
 <section class = "navbar">
 	<p class = "navbar-header">PROCURATOR</p>
@@ -51,7 +51,7 @@
 	<div class = "content">
 		<div class = "activity">
 			<p class = "projected-date sub-header">CURRENT USERS</p>
-			<table id="1">
+			<table id="user-table">
 				<tr>
 					<th>Name</th>
 					<th>Email</th>
@@ -70,9 +70,9 @@
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" type="text/javascript"></script>
 
 <script type="text/javascript">
-function output1() {
+function generateTableData() {
 	make_server_request('output1', function(data) {
-		same(3, data.responseText);
+		same(3, data.responseText, "user-table");
 	})
 }
 </script>

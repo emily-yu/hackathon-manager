@@ -10,7 +10,7 @@ function make_server_request(endpoint, callback) {
     });
 }
 
-function createNTable(array) {
+function createNTable(array, id) {
     var content = "";
     array.forEach(function(row) {
         content += "<tr>";
@@ -19,7 +19,7 @@ function createNTable(array) {
         });
         content += "</tr>";
     });
-    document.getElementById("1").innerHTML += content;
+    document.getElementById(id).innerHTML += content;
 }
 
 function clean(obj) {
@@ -37,7 +37,7 @@ function deleteByValue(val, inputs) {
     }
 }
 
-function same(n, csv) {
+function same(n, csv, id) {
     let temp = new Array();
     temp = csv.split('\n');
     temp = temp.toString().split(',');
@@ -61,7 +61,7 @@ function same(n, csv) {
         }
     }
 
-    createNTable(fullArray)
+    createNTable(fullArray, id)
 
     // generate some page specific elements
     switch ((location.pathname.substring(location.pathname.lastIndexOf("/") + 1))) {
@@ -128,6 +128,8 @@ function same(n, csv) {
                 }
             }
 
+            break;
+        case 'judging.html':
             break;
         default:
             console.log("nah")

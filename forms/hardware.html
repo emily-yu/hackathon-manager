@@ -2,11 +2,11 @@
 <html>
 <head>
 	<title>Hardware Loans</title>
-	<link rel="stylesheet" type="text/css" href="form.css">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
 </head>
 <body>
 
-<h1>new hacker application</h1>
+<h1>hardware request</h1>
 <form action = "https://pacific-escarpment-47591.herokuapp.com/hardware" method = "get">
 	<p>Device Name:</p>
 	<input type="text" name="deviceName"><br>

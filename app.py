@@ -10,7 +10,7 @@ import codecs
 import os, errno
 from werkzeug import secure_filename
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder = os.getcwd() + '/forms')
 
 @app.route("/")
 def hello():
@@ -219,6 +219,18 @@ def send_simple_message():
 		"subject" : subject,
 		"text" : textLine,
 		})
+
+@app.route('/judge_form')
+def judge_form():
+	return render_template('judge.html')
+
+@app.route('/user_form')
+def user_form():
+	return render_template('newUser.html')
+
+@app.route('/hardware_form')
+def hardware_form():
+	return render_template('hardware.html')
 
 if __name__ == '__main__':
         app.run()
