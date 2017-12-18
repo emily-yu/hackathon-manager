@@ -137,6 +137,7 @@ function same(n, csv, id) {
             })
             break;
         case 'index.html':
+            // setting links
             const homeJudgingButton = document.getElementById('judging-link')
             homeJudgingButton.textContent = getNgrok() + 'judge_form'
             homeJudgingButton.addEventListener('click', function() {
@@ -152,6 +153,40 @@ function same(n, csv, id) {
             homeRegistrationButton.addEventListener('click', function() {
                 window.open(getNgrok() + 'user_form')
             })
+
+            // replacing edit button
+            const editButtons = document.getElementsByClassName('content')[0].getElementsByTagName('td')
+            const td = document.getElementsByTagName('td')
+            for (let i = 0; i<editButtons.length; i++) {
+                if ((i+1) % 3 == 0) { // add invoices
+                    const row_number = Math.ceil(i/3)
+                    console.log(row_number)
+                    console.log(editButtons[i])
+                    editButtons[i].innerHTML = '<a class = "edit">Edit</a>'
+                    editButtons[i].addEventListener('click', function(event) {
+                        console.log(event.target)
+                        console.log(event.target.classList[0])
+                        if (event.target.classList[0] == 'edit') {
+                            event.target.textContent = 'Save'
+                            event.target.classList = 'save'
+                            console.log(td[i-1].textContent)
+                            td[i-1].innerHTML = '<input type = "text" placeholder = "' + td[i-1].textContent.toString() + '">'
+                        }
+                        else {
+                            event.target.textContent = 'Edit'
+                            event.target.classList = 'edit'
+                            console.log(td[i-1])
+                            if (td[i-1].value == '') {
+                                // td[i-1].innerHTML = td[i-1].getAttribute("placeholder")
+                                td[i-1].innerHTML = td[i-1].value
+                            }
+                            else {
+                                td[i-1].innerHTML = td[i-1].value
+                            }
+                        }
+                    })
+                }
+            }
             break;
         default:
             console.log("nah")
