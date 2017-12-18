@@ -205,6 +205,26 @@ def change_milestone_status():
 
 	return "changed"
 
+@app.route('/change_logistics')
+def change_logistics():
+	new_rows = []
+	row = request.args.get('row')
+	status = request.args.get('status')
+
+	with open(os.getcwd() + '/application/logistics.csv') as f:
+		reader = csv.reader(f)
+		for row in reader:
+			new_rows.append(row)
+
+	print(new_rows[int(request.values['row'])-1][1])
+	new_rows[int(request.values['row'])-1][1] = status
+	print(new_rows[int(request.values['row'])-1][1])
+	with open(os.getcwd() + '/application/logistics.csv', 'w') as f:
+		writer = csv.writer(f)
+		writer.writerows(new_rows)
+
+	return "changed"
+
 @app.route("/sendEmail")
 def send_simple_message():
 	name = request.args.get("name")

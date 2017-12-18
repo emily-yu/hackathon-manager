@@ -160,28 +160,24 @@ function same(n, csv, id) {
             for (let i = 0; i<editButtons.length; i++) {
                 if ((i+1) % 3 == 0) { // add invoices
                     const row_number = Math.ceil(i/3)
-                    console.log(row_number)
-                    console.log(editButtons[i])
                     editButtons[i].innerHTML = '<a class = "edit">Edit</a>'
                     editButtons[i].addEventListener('click', function(event) {
-                        console.log(event.target)
-                        console.log(event.target.classList[0])
                         if (event.target.classList[0] == 'edit') {
                             event.target.textContent = 'Save'
                             event.target.classList = 'save'
-                            console.log(td[i-1].textContent)
-                            td[i-1].innerHTML = '<input type = "text" placeholder = "' + td[i-1].textContent.toString() + '">'
+                            const inner = td[i-1].textContent
+                            td[i-1].innerHTML = '<input type = "text" placeholder = "' + inner.replace(/"([^"]+(?="))"/g, '$1') + '" style = "width: 100%">'
                         }
                         else {
                             event.target.textContent = 'Edit'
                             event.target.classList = 'edit'
-                            console.log(td[i-1])
-                            if (td[i-1].value == '') {
-                                // td[i-1].innerHTML = td[i-1].getAttribute("placeholder")
-                                td[i-1].innerHTML = td[i-1].value
+                            const input = td[i-1].getElementsByTagName('input')[0]
+                            if (td[i-1].getElementsByTagName('input')[0].value == '') {
+                                input.parentNode.innerHTML = td[i-1].getElementsByTagName('input')[0].placeholder
                             }
                             else {
-                                td[i-1].innerHTML = td[i-1].value
+                                input.parentNode.innerHTML = input.value
+                                make_server_request('change_logistics?row=' + row_number + '&status=' + input.value, function() {})
                             }
                         }
                     })
