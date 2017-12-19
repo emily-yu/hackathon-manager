@@ -225,6 +225,25 @@ def change_logistics():
 
 	return "changed"
 
+@app.route('/get_ranking')
+def get_ranking():
+	new_rows = []
+	point_vals = []
+	unique_projects = []
+
+	with open(os.getcwd() + '/application/judges.csv') as f:
+		reader = csv.reader(f)
+		for row in reader:
+			if row[1] not in unique_projects:
+				unique_projects.append(row[1])
+				unique_projects.append(int(row[2]) + int(row[4]) + int(row[6]) + int(row[8]) + int(row[10]))
+			else:
+				unique_projects[unique_projects.index(row[1]) + 1] += int(row[2]) + int(row[4]) + int(row[6]) + int(row[8]) + int(row[10])
+
+	print(unique_projects)
+
+	return str(unique_projects)[1:-1]
+
 @app.route("/sendEmail")
 def send_simple_message():
 	name = request.args.get("name")

@@ -74,22 +74,10 @@
 
 		<div class = "activity">
 			<p class = "projected-date sub-header">Project Rankings</p>
-			<table id="2">
+			<table id="ranking-table">
 				<tr>
-					<th>Judge</th>
 					<th>Project</th>
-				</tr>
-				<tr class = "content">
-					<td>project1</td>
-					<td>44</td> 
-				</tr>
-				<tr class = "content">
-					<td>project2</td>
-					<td>44</td> 
-				</tr>
-				<tr class = "content">
-					<td>project3</td>
-					<td>27</td> 
+					<th>Score</th>
 				</tr>
 			</table>
 		</div>
@@ -105,6 +93,9 @@
 function generateTableData() {
 	make_server_request('output4', function(data) {
 		same(12, data.responseText, "judge-table");
+	})
+	make_server_request('get_ranking', function(data) {
+		formatProjectRanking(data.responseText, "ranking-table");
 	})
 }
 </script>

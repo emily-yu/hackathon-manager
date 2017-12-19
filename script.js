@@ -37,13 +37,32 @@ function deleteByValue(val, inputs) {
     }
 }
 
+function formatProjectRanking(csv, id) {
+    let temp = new Array();
+    temp = csv.split('\n');
+    temp = temp.toString().split(',');
+    deleteByValue('""', temp)
+    for (i = 0; i < temp.length; i += 1) { 
+        if (temp[i] == undefined) {
+            temp.splice(i, 2);
+        }
+    }
+    let fullArray = []
+
+    var i,j,temparray,chunk = 2;
+    for (i=0,j=temp.length; i<j; i+=chunk) {
+        temparray = temp.slice(i,i+chunk);
+        fullArray.push(temparray)
+    }
+    createNTable(fullArray, id)
+}
+
 function same(n, csv, id) {
     let temp = new Array();
     temp = csv.split('\n');
     temp = temp.toString().split(',');
     deleteByValue('""', temp)
     for (i = 0; i < temp.length; i += 1) { 
-        console.log(temp[i])
         if (temp[i] == undefined) {
             temp.splice(i, 2);
         }
