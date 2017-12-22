@@ -69,14 +69,14 @@
 
 	<div class = "content">
 		<p class = "projected-date">CURRENT PROJECTED DATE: 01-19-2018 </p>
-		<form action = "https://pacific-escarpment-47591.herokuapp.com/goals">
+		<form id = "form">
 			<div class = "activity">
 				<p class = "projected-date sub-header">ADD NEW</p>
 				<div class = "container">
 					<input type = "date" name = "date">
 					<input type = "text" name = "milestone">
 					<br>
-					<input type = "submit">
+					<input type = "submit" onclick='this.form.action=getNgrok() + "goals"'>
 				</div>
 			</div>
 		</form>

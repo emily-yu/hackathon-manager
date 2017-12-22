@@ -2,12 +2,14 @@
 <html>
 <head>
 	<title>Hacker Application</title>
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='form.css') }}">
 </head>
 <body>
 
+<script src = "{{ url_for('static', filename='global.js') }}"></script>
+
 <h1>new hacker application</h1>
-<form action = "https://pacific-escarpment-47591.herokuapp.com/users" method = "get">
+<form>
 	<p>Name:</p>
 	<input type="text" name="name"><br>
 
@@ -18,7 +20,8 @@
 	<!-- only input one word or demo breaks!-->
 	<input type="text" name="school">
 
-	<input type="submit" value="Submit">
+	<input type = "submit" onclick='submits()'>
+
 	<input type="reset">
 </form>
 
