@@ -46,7 +46,7 @@
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
 
-                        <img style = "height:250px; padding-bottom: 30px" src="img/templogo.png">
+                        <!-- <img style = "height:250px; padding-bottom: 30px" src="img/templogo.png"> -->
 
                         <h2 style="font-size: 50px !important; font-family: 'Raleway', sans-serif; text-transform: lowercase !important">Procurator</h2>
                         <p class="" style = "font-family: 'Raleway'; padding-top: 10px;padding-bottom: 20px">streamlining event organization through app integration</p>
@@ -112,6 +112,48 @@
         </div>
     </section>
 
+    <section class = "container content-section">
+        <h3 style = "padding-bottom: 20px; text-align: center">Media</h3>
+        <div class="slideshow-container">
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 6</div>
+                <img src="img/hardware.png" style="width:100%">
+                <div class="text">Caption Text</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 6</div>
+                <img src="img/home.png" style="width:100%">
+                <div class="text">Caption Two</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 6</div>
+                <img src="img/logistics.png" style="width:100%">
+                <div class="text">Caption Three</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">4 / 6</div>
+                <img src="img/milestone.png" style="width:100%">
+                <div class="text">Caption Three</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">5 / 6</div>
+                <img src="img/sponsor.png" style="width:100%">
+                <div class="text">Caption Three</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">6 / 6</div>
+                <img src="img/users.png" style="width:100%">
+                <div class="text">Caption Three</div>
+            </div>
+        </div>
+
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container text-center">
@@ -123,7 +165,23 @@
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="landing.js"></script>
+    <script type="text/javascript">
+    // w3 slideshow
+    var slideIndex = 0;
+    showSlides();
 
+    function showSlides() {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none"; 
+        }
+        slideIndex++;
+        if (slideIndex > slides.length) {slideIndex = 1} 
+        slides[slideIndex-1].style.display = "block"; 
+        setTimeout(showSlides, 4000);
+    }
+    </script>
 
 </body>
 </html>
