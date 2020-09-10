@@ -1,6 +1,7 @@
 function make_server_request(endpoint, callback) {
     const myUrl = getNgrok() + endpoint;
-    const proxy = 'https://cors-anywhere.herokuapp.com/';
+    // const proxy = 'https://cors-anywhere.herokuapp.com/';
+    const proxy = ''
 
     $.ajax({
         url: proxy + myUrl,
@@ -126,7 +127,7 @@ function same(n, csv, id) {
                     for (let i = 0; i<x.length; i++) {
                         if (open_button.parentNode.parentNode === x[i]) {
                             const row_number = Math.ceil(i/5)
-                            make_server_request('change_milestone_status?row=' + row_number + '&status=' + event.target.textContent, function() {})
+                            make_server_request('/change_milestone_status?row=' + row_number + '&status=' + event.target.textContent, function() {})
                         }
                     }
                 }
@@ -150,27 +151,27 @@ function same(n, csv, id) {
             break;
         case 'judging.html':
             const judgingButton = document.getElementById('judging-link')
-            judgingButton.textContent = getNgrok() + 'judge_form'
+            judgingButton.textContent = getNgrok() + '/judge_form'
             judgingButton.addEventListener('click', function() {
-                window.open(getNgrok() + 'judge_form')
+                window.open(getNgrok() + '/judge_form')
             })
             break;
         case 'index.html':
             // setting links
             const homeJudgingButton = document.getElementById('judging-link')
-            homeJudgingButton.textContent = getNgrok() + 'judge_form'
+            homeJudgingButton.textContent = getNgrok() + '/judge_form'
             homeJudgingButton.addEventListener('click', function() {
-                window.open(getNgrok() + 'judge_form')
+                window.open(getNgrok() + '/judge_form')
             })
             const homeHardwareButton = document.getElementById('hardware-link')
-            homeHardwareButton.textContent = getNgrok() + 'hardware_form'
+            homeHardwareButton.textContent = getNgrok() + '/hardware_form'
             homeHardwareButton.addEventListener('click', function() {
-                window.open(getNgrok() + 'hardware_form')
+                window.open(getNgrok() + '/hardware_form')
             })
             const homeRegistrationButton = document.getElementById('registration-link')
-            homeRegistrationButton.textContent = getNgrok() + 'user_form'
+            homeRegistrationButton.textContent = getNgrok() + '/user_form'
             homeRegistrationButton.addEventListener('click', function() {
-                window.open(getNgrok() + 'user_form')
+                window.open(getNgrok() + '/user_form')
             })
 
             // replacing edit button
@@ -196,7 +197,7 @@ function same(n, csv, id) {
                             }
                             else {
                                 input.parentNode.innerHTML = input.value
-                                make_server_request('change_logistics?row=' + row_number + '&status=' + input.value, function() {})
+                                make_server_request('/change_logistics?row=' + row_number + '&status=' + input.value, function() {})
                             }
                         }
                     })
@@ -254,7 +255,7 @@ function setImage(fileNames, elemNumber) {
 }
 
 function get_image_names(folder, elemNumber) {
-    make_server_request('get_files?folder=' + folder, function(data) {
+    make_server_request('/get_files?folder=' + folder, function(data) {
         setImage(data.responseText.split(/[ ,]+/).filter(Boolean), elemNumber)
     })
 }

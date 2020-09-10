@@ -104,7 +104,7 @@
 
 <script type="text/javascript">
 function generateTableData() {
-	make_server_request('output5', function(data) {
+	make_server_request('/output5', function(data) {
 		same(3, data.responseText, "milestone-table");
 	})
 }

@@ -71,7 +71,7 @@
 
 <script type="text/javascript">
 function generateTableData() {
-	make_server_request('output1', function(data) {
+	make_server_request('/output1', function(data) {
 		same(3, data.responseText, "user-table");
 	})
 }
