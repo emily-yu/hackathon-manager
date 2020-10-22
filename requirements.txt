@@ -1,4 +1,4 @@
 manage==0.1.13
 Flask==0.12
-requests==2.5.3
+requests==2.20.0
 gunicorn==19.7.1
